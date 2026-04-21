@@ -15,9 +15,11 @@ export function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="flex flex-col gap-4">
         {photos.map((photo) => (
-          <MemoryPhotoCard key={photo.src} photo={photo} />
+          <div key={photo.src} className="w-full max-w-sm mx-auto sm:max-w-none sm:mx-0">
+            <MemoryPhotoCard photo={photo} />
+          </div>
         ))}
       </div>
     </section>

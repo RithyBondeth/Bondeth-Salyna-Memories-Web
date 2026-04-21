@@ -8,7 +8,8 @@ export function createAdorePage(): BookPage {
     label: "Adoration",
     eyebrow: "Chapter Four",
     title: "Things I Notice About You",
-    subtitle: "Written down so you know I see them \u2014 not just once, but always.",
+    subtitle:
+      "Written down so you know I see them \u2014 not just once, but always.",
     intro:
       "Loving you started with the way you look, but it settled somewhere much deeper. I love how your mind moves. I love the weight your doctorate puts on your shoulders and the grace you carry it with. You are an outstanding student and the softest person I have ever known at the same time, and somehow both of those things made me more sure.",
     quote:
@@ -41,7 +42,6 @@ export function createAdorePage(): BookPage {
         body: "For someone this driven, you are somehow still the gentlest person in every room you walk into. You carry kindness like it does not cost you anything. Being loved by you has made me kinder, too.",
       },
     ],
-    note:
-      "The more I know you, the more I respect you. The more I respect you, the harder I love you. It only keeps going in one direction.",
+    note: "The more I know you, the more I respect you. The more I respect you, the harder I love you. It only keeps going in one direction.",
   };
 }
