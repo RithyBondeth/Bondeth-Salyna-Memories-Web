@@ -6,8 +6,8 @@ import { createCoverPage } from "../sections/cover/constants";
 import { createDatesPage } from "../sections/dates/constants";
 import { createDistancePage } from "../sections/distance/constants";
 import { createDreamsPage } from "../sections/dreams/constants";
-import { createFuturePage } from "../sections/future/constants";
 import { createGalleryPage } from "../sections/gallery/constants";
+import { createIntroductionPage } from "../sections/introduction/constants";
 import { createLetterPage } from "../sections/letter/constants";
 
 export type BookRouteEntry = {
@@ -23,6 +23,11 @@ export const BOOK_ROUTES: BookRouteEntry[] = [
     id: "cover",
     href: "/cover",
     page: createCoverPage(),
+  },
+  {
+    id: "introduction",
+    href: "/introduction",
+    page: createIntroductionPage(),
   },
   {
     id: "dreams",
@@ -43,11 +48,6 @@ export const BOOK_ROUTES: BookRouteEntry[] = [
     id: "adore",
     href: "/adore",
     page: createAdorePage(),
-  },
-  {
-    id: "future",
-    href: "/future",
-    page: createFuturePage(),
   },
   {
     id: "gallery",

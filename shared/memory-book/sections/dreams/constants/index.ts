@@ -5,30 +5,30 @@ import type { BookPage } from "@/components/memory-book/types";
 export function createDreamsPage(): BookPage {
   return {
     id: "dreams",
-    label: "Your Visit",
+    label: "In Person",
     eyebrow: "Chapter One",
-    title: "The Month You Were Here",
+    title: "The First Time I Saw You For Real",
     subtitle: "January 2026 — the first time I did not have to imagine you beside me.",
     intro:
-      "For weeks before your flight, I kept picturing the moment I would actually see you at the airport — not on a screen, not in a photo, you. And then it happened. You walked toward me and my whole chest went quiet. For the rest of that month, you were here in Cambodia, in my city, in my ordinary days, and every one of those days rearranged itself around you.",
+      "Before we met in person, I kept picturing the first second I would finally see you not on a screen, not in a photo, but standing right in front of me. And then it happened. Everything in me went quiet. From that moment on, even the smallest time with you felt bigger than whole months without you.",
     quote:
-      "You did not just visit me. You rewrote the shape of what I call a normal day.",
+      "You did not just stand beside me. You rewrote the shape of what I call a normal day.",
     photos: [
       {
-        src: "/assets/dreams/journey-01.png",
+        src: "/assets/dreams/dreams-01.png",
         alt: "Visit placeholder \u2014 Salyna in Cambodia",
-        caption: "When you landed",
+        caption: "When I finally saw you",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/assets/dreams/journey-02.png",
+        src: "/assets/dreams/dreams-02.png",
         alt: "Visit placeholder \u2014 a quiet moment together",
         caption: "Ordinary hours",
         frameClassName: "aspect-[4/5]",
       },
       {
-        src: "/assets/dreams/journey-03.png",
+        src: "/assets/dreams/dreams-03.png",
         alt: "Visit placeholder \u2014 shared motivation",
         caption: "Side by side",
         frameClassName: "aspect-[4/5]",
@@ -43,10 +43,10 @@ export function createDreamsPage(): BookPage {
       {
         icon: Heart,
         title: "How I saw you",
-        body: "Closer than any screen had ever let me see. Up close, you laugh with your whole face. Up close, you go quiet before you say the important things. That version of you is the one I will spend the rest of my life trying to remember in detail.",
+        body: "Closer than any screen had ever let me see. Up close, you laugh with your whole face. Up close, you go quiet before you say the important things. That version of you is the one I keep replaying in detail.",
       },
     ],
     note:
-      "If I could choose one season of my life to keep, I would keep that one. The way you stood next to me made the world feel finally held.",
+      "If I could choose one stretch of time to keep glowing in my memory, I would keep that one. The way you stood next to me made the world feel finally held.",
   };
 }

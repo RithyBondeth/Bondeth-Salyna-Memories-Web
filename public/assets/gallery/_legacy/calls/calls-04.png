@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="82" y1="72" x2="1492" y2="1126" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C084FC"/>
+      <stop offset="0.5" stop-color="#F9A8D4"/>
+      <stop offset="1" stop-color="#FDE68A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="52" fill="url(#g)"/>
+  <rect x="76" y="76" width="1448" height="1048" rx="34" fill="#FDF4FF" fill-opacity=".68" stroke="#fff" stroke-opacity=".84" stroke-width="8"/>
+  <rect x="138" y="158" width="1324" height="704" rx="28" fill="#fff" fill-opacity=".74"/>
+  <text x="138" y="950" fill="#7E22CE" font-family="Arial, sans-serif" font-size="60" font-weight="700">Call 04</text>
+  <text x="138" y="1022" fill="#9333EA" font-family="Arial, sans-serif" font-size="38">calls-04.svg</text>
+  <text x="138" y="1082" fill="#9F1239" font-family="Arial, sans-serif" font-size="30">Placeholder for one more late-night call memory.</text>
+</svg>

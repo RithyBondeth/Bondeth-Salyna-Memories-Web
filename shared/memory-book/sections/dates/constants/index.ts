@@ -1,10 +1,5 @@
-import { CalendarDays, Heart, Plane } from "lucide-react";
+import { CalendarDays, Gift, Heart, MessageCircle } from "lucide-react";
 
-import {
-  FIRST_ANNIVERSARY,
-  formatDate,
-  RELATIONSHIP_START,
-} from "@/components/memory-book/dates";
 import type { BookPage, RelationshipMetrics } from "@/components/memory-book/types";
 
 export function createDatesPage(metrics: RelationshipMetrics): BookPage {
@@ -14,24 +9,24 @@ export function createDatesPage(metrics: RelationshipMetrics): BookPage {
     id: "dates",
     label: "Timeline",
     eyebrow: "Chapter Three",
-    title: "The Dates I Keep Safe",
-    subtitle: "Some days stopped being days and became parts of me.",
+    title: "The Dates That Found Us",
+    subtitle: "The years and months that kept leading me back to you.",
     intro:
-      "There are only a few days in my life that I keep polished in my memory. The day we started dating. The weeks you were here in Cambodia. The morning I had to let you fly home. And the year I am already walking toward \u2014 2027 \u2014 when I close the distance for good.",
+      "2022 gave me my first love. June 2025 gave us another chance. January 2026 gave me the first real moment I could stand beside you and place a promise ring in your hand. These are the dates I keep closest.",
     quote:
-      "Love takes a handful of calendar days and turns them into monuments.",
+      "Some dates matter because they happened. Ours matter because they changed who I became after them.",
     photos: [
       {
-        src: "/assets/dates/timeline-01.png",
+        src: "/assets/dates/dates-01.png",
         alt: "Timeline placeholder \u2014 a meaningful day",
-        caption: "Our first day",
+        caption: "2022 \u2014 our first beginning",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/assets/dates/timeline-02.png",
+        src: "/assets/dates/dates-02.png",
         alt: "Timeline placeholder \u2014 a small celebration",
-        caption: "A small celebration",
+        caption: "January 2026 \u2014 the promise ring",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
@@ -39,26 +34,26 @@ export function createDatesPage(metrics: RelationshipMetrics): BookPage {
     cards: [
       {
         icon: CalendarDays,
-        title: formatDate(RELATIONSHIP_START),
-        body: "The day you said yes. The day my ordinary life quietly split into before you and after you. I remember how my hands felt that day \u2014 like they finally had somewhere to belong.",
+        title: "2022",
+        body: "You were in Siem Reap and I was in Phnom Penh. That was the first time my heart learned your name, and the first time love felt real enough to scare me.",
       },
       {
         icon: Heart,
-        title: "January to February 2026",
-        body: "A month I will replay forever, and a morning I will not romanticize \u2014 it hurt, and I remember every minute of it. Both of them are yours.",
+        title: "June 2025",
+        body: "Time passed, we found each other again, and this time we made it. The feeling returned, but steadier, warmer, and more certain than before.",
       },
       {
-        icon: CalendarDays,
-        title: formatDate(FIRST_ANNIVERSARY),
-        body: "One full year of loving you out loud. I am already thinking about how to make the day feel like you \u2014 quiet, careful, and warmer than you expect.",
+        icon: MessageCircle,
+        title: "Every day since",
+        body: "We talked every single day. One message became another, then another, until loving you started sounding like the most natural part of my life.",
       },
       {
-        icon: Plane,
-        title: "Australia, 2027",
-        body: "Not a dream I mention casually. A year I am saving toward, planning around, and quietly organizing my life in the direction of.",
+        icon: Gift,
+        title: "January 2026",
+        body: "Our first meeting in person. The promise ring. The moment the story I had carried for years finally touched real life.",
       },
     ],
     note:
-      `${daysTogether} days in, every one of them made me surer. One day I want us to look back at these dates and know we loved each other through every mile between them.`,
+      `${daysTogether} days from the beginning of June 2025 to now, and I still feel lucky that love gave us another chance.`,
   };
 }

@@ -5,14 +5,15 @@ import type { BookPage } from "@/components/memory-book/types";
 export function createCoverPage(): BookPage {
   return {
     id: "cover",
-    label: "Letter",
+    label: "Cover",
     eyebrow: "For Salyna, from Bondeth",
-    title: "For The Girl I Will Always Choose",
-    subtitle: "Written at night in Cambodia, meant to be opened slowly in Australia.",
+    title: "For The Girl My Heart Found Twice",
+    subtitle:
+      "A small book for the story that started in 2022 and found us again in 2025.",
     intro:
-      "Salyna, I know I spend my days writing code, but none of it has ever felt as real as writing this. Messages scroll away and calls eventually end — I wanted you to have somewhere permanent to find me. Open this whenever you need to be reminded: I meant every line.",
+      "Salyna, I wanted our story to have somewhere gentle to live. Not only in messages, not only in calls, but in a place we can reopen and feel again. This begins where we first met in 2022, carries the second chance we found in June 2025, and keeps the promise ring I gave you when I finally saw you in person in January 2026.",
     quote:
-      "No flight, no time zone, no silence has ever loosened my grip on you.",
+      "Some love stories return at the right time and finally learn how to stay.",
     photos: [
       {
         src: "/assets/cover/cover-01.png",
@@ -38,15 +39,15 @@ export function createCoverPage(): BookPage {
       {
         icon: Heart,
         title: "Why this book exists",
-        body: "Because I do not want loving you to live only in chats that disappear up the screen. I wanted you to have one place where my voice stays still, where you can come back and feel how serious I am about you.",
+        body: "Because I do not want our love to live only in chats that disappear up the screen. I wanted one place where my voice stays still, where you can come back and remember how real this has always been to me.",
       },
       {
         icon: BookOpen,
         title: "What you'll find inside",
-        body: "Our first day — September 1, 2025. The month you came to Cambodia in January 2026. The morning you flew back in February. The things I notice about you, and the year I am already walking toward: 2027.",
+        body: "How we first met in 2022 while you were in Siem Reap and I was in Phnom Penh. How June 2025 brought us back to each other. The first time I saw you in person in January 2026 and the promise ring I put on your hand. The things I notice about you, and the memories I never want to lose.",
       },
     ],
     note:
-      "If you're reading this, you've just opened something I have been carrying in my chest for a long time. Take your time with it. I'm right here.",
+      "If you're reading this, you've just opened something I have been carrying in my chest for a long time. Take your time with it. I am right here.",
   };
 }

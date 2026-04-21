@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="88" y1="70" x2="1498" y2="1132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A8D4"/>
+      <stop offset="0.5" stop-color="#FDE68A"/>
+      <stop offset="1" stop-color="#FED7AA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="52" fill="url(#g)"/>
+  <rect x="76" y="76" width="1448" height="1048" rx="34" fill="#FFFDF7" fill-opacity=".68" stroke="#fff" stroke-opacity=".84" stroke-width="8"/>
+  <rect x="136" y="160" width="1328" height="704" rx="28" fill="#fff" fill-opacity=".74"/>
+  <text x="136" y="950" fill="#9D174D" font-family="Arial, sans-serif" font-size="60" font-weight="700">Memory Marker Slot</text>
+  <text x="136" y="1022" fill="#BE185D" font-family="Arial, sans-serif" font-size="38">timeline-02.svg</text>
+  <text x="136" y="1082" fill="#9F1239" font-family="Arial, sans-serif" font-size="30">Use a note, flower, present, or milestone image here.</text>
+</svg>

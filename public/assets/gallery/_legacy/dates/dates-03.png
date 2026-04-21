@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="84" y1="74" x2="1492" y2="1126" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDBA74"/>
+      <stop offset="0.5" stop-color="#FDE68A"/>
+      <stop offset="1" stop-color="#F9A8D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="52" fill="url(#g)"/>
+  <rect x="78" y="78" width="1444" height="1044" rx="34" fill="#FFF7ED" fill-opacity=".68" stroke="#fff" stroke-opacity=".84" stroke-width="8"/>
+  <rect x="856" y="160" width="562" height="820" rx="36" fill="#fff" fill-opacity=".76"/>
+  <text x="150" y="836" fill="#B45309" font-family="Arial, sans-serif" font-size="60" font-weight="700">Dates 03</text>
+  <text x="150" y="908" fill="#D97706" font-family="Arial, sans-serif" font-size="36">dates-03.svg</text>
+  <text x="150" y="968" fill="#9F1239" font-family="Arial, sans-serif" font-size="30">Placeholder for a gift, flower, or celebration photo.</text>
+</svg>

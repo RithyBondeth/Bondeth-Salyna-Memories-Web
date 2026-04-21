@@ -11,9 +11,9 @@ export function createAdorePage(): BookPage {
     subtitle:
       "Written down so you know I see them \u2014 not just once, but always.",
     intro:
-      "Loving you started with the way you look, but it settled somewhere much deeper. I love how your mind moves. I love the weight your doctorate puts on your shoulders and the grace you carry it with. You are an outstanding student and the softest person I have ever known at the same time, and somehow both of those things made me more sure.",
+      "Loving you started with the way you look, but it settled somewhere much deeper. I love your gentleness. I love the calm you bring into my day. I love the way your presence can make even an ordinary moment feel softer.",
     quote:
-      "You are beautiful because your mind and your heart refuse to separate.",
+      "The more I know you, the more beautiful you become to me.",
     photos: [
       {
         src: "/assets/adore/adore-01.png",
@@ -33,15 +33,16 @@ export function createAdorePage(): BookPage {
     cards: [
       {
         icon: BookOpen,
-        title: "Your mind",
-        body: "When you talk about your studies, your whole face changes. I could listen to you explain something forever. You are one of the sharpest people I know, and I get to love you, which still feels unfair to everyone else.",
+        title: "Your presence",
+        body: "When you are there, everything feels softer. A room changes. A hard day loosens. Even silence feels easier to carry when it belongs to both of us.",
       },
       {
         icon: Heart,
-        title: "Your softness",
-        body: "For someone this driven, you are somehow still the gentlest person in every room you walk into. You carry kindness like it does not cost you anything. Being loved by you has made me kinder, too.",
+        title: "Your heart",
+        body: "You have a gentleness that never feels weak. It feels rare. Being loved by you has made me want to be better, softer, and more honest in the way I care for you.",
       },
     ],
-    note: "The more I know you, the more I respect you. The more I respect you, the harder I love you. It only keeps going in one direction.",
+    note:
+      "The more I know you, the more I admire the quiet beauty of who you are. Loving you keeps becoming easier and deeper at the same time.",
   };
 }

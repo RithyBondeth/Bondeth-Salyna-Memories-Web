@@ -7,13 +7,13 @@ export function createDistancePage(): BookPage {
     id: "distance",
     label: "After Goodbye",
     eyebrow: "Chapter Two",
-    title: "The Morning You Flew Back",
+    title: "After We Had To Be Apart Again",
     subtitle:
-      "February 2026 \u2014 the airport took you back, and my life quietly reshaped itself around missing you.",
+      "After January 2026, being apart again felt heavier because now I knew exactly what I was missing.",
     intro:
-      "I had known the goodbye was coming for weeks, and I still was not ready for the shape of the room after you left it. By the next night you were in Australia again, and the apartment felt like a song with its loudest note suddenly missing. Distance did not make me love you less. It made me feel exactly how much I love you \u2014 which is everything.",
+      "I knew the goodbye would hurt, but I still was not ready for the shape of the room after you left it. Once I had finally seen you in person, distance stopped feeling abstract. It became the ache of knowing exactly how your hand feels in mine and not being able to reach for it whenever I want. Loving you did not get smaller after that. It got clearer.",
     quote:
-      "Loving you across an ocean is heavy. Not loving you would be impossible.",
+      "Loving you from far away is heavy. Not loving you would be impossible.",
     photos: [
       {
         src: "/assets/distance/distance-01.png",

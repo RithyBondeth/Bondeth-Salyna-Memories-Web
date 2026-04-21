@@ -1,7 +1,7 @@
 import type { RelationshipMetrics } from "./types";
 
-export const RELATIONSHIP_START = createDate(2025, 9, 1);
-export const FIRST_ANNIVERSARY = createDate(2026, 9, 1);
+export const RELATIONSHIP_START = createDate(2025, 6, 1);
+export const FIRST_ANNIVERSARY = createDate(2026, 6, 1);
 export const BONDETH_BIRTHDAY = createDate(2002, 5, 7);
 export const SALYNA_BIRTHDAY = createDate(2006, 6, 14);
 export const REFERENCE_TODAY = createDate(2026, 4, 21);
