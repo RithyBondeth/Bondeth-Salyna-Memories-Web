@@ -37,6 +37,13 @@ type MemoryPhoto = {
   imageClassName?: string;
 };
 
+type GalleryCategory = {
+  title: string;
+  description: string;
+  folder: string;
+  photos: MemoryPhoto[];
+};
+
 type BookPage = {
   id: string;
   label: string;
@@ -47,6 +54,7 @@ type BookPage = {
   quote: string;
   chips: string[];
   photos: MemoryPhoto[];
+  galleryCategories?: GalleryCategory[];
   cards: BookCard[];
   note: string;
 };
@@ -190,6 +198,46 @@ function FloatingHearts() {
   );
 }
 
+function MemoryPhotoCard({ photo }: { photo: MemoryPhoto }) {
+  return (
+    <figure
+      className={cn(
+        "group rounded-[1.8rem] border border-white/72 bg-white/74 p-3 shadow-[0_18px_42px_rgba(190,24,93,0.08)]",
+        photo.cardClassName
+      )}
+    >
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-[1.35rem] border border-rose-100 bg-rose-50",
+          photo.frameClassName ?? "aspect-[4/5]"
+        )}
+      >
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 32vw"
+          className={cn(
+            "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
+            photo.imageClassName
+          )}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-rose-950/55 via-transparent to-white/20" />
+        <span className="absolute left-3 top-3 rounded-full bg-white/82 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-rose-600 shadow-sm">
+          Placeholder
+        </span>
+      </div>
+
+      <figcaption className="mt-3 grid gap-1 px-1">
+        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-rose-500">
+          {photo.caption}
+        </p>
+        <p className="text-sm leading-6 text-rose-950/68">{photo.hint}</p>
+      </figcaption>
+    </figure>
+  );
+}
+
 function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
   return (
     <section className="grid gap-4 rounded-[2rem] border border-white/68 bg-white/54 p-4 shadow-[0_20px_48px_rgba(190,24,93,0.08)] backdrop-blur-md sm:p-5">
@@ -211,42 +259,7 @@ function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
 
       <div className="grid grid-cols-2 gap-4">
         {photos.map((photo) => (
-          <figure
-            key={photo.src}
-            className={cn(
-              "group rounded-[1.8rem] border border-white/72 bg-white/74 p-3 shadow-[0_18px_42px_rgba(190,24,93,0.08)]",
-              photo.cardClassName
-            )}
-          >
-            <div
-              className={cn(
-                "relative overflow-hidden rounded-[1.35rem] border border-rose-100 bg-rose-50",
-                photo.frameClassName ?? "aspect-[4/5]"
-              )}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 32vw"
-                className={cn(
-                  "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
-                  photo.imageClassName
-                )}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-rose-950/55 via-transparent to-white/20" />
-              <span className="absolute left-3 top-3 rounded-full bg-white/82 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-rose-600 shadow-sm">
-                Placeholder
-              </span>
-            </div>
-
-            <figcaption className="mt-3 grid gap-1 px-1">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-rose-500">
-                {photo.caption}
-              </p>
-              <p className="text-sm leading-6 text-rose-950/68">{photo.hint}</p>
-            </figcaption>
-          </figure>
+          <MemoryPhotoCard key={photo.src} photo={photo} />
         ))}
       </div>
 
@@ -254,6 +267,67 @@ function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
         Replace any placeholder later by keeping the same filename inside
         {" "}
         <span className="font-semibold text-rose-700">/public/memories</span>.
+      </div>
+    </section>
+  );
+}
+
+function CategorizedGallery({ categories }: { categories: GalleryCategory[] }) {
+  return (
+    <section className="grid gap-4 rounded-[2rem] border border-white/68 bg-white/54 p-4 shadow-[0_20px_48px_rgba(190,24,93,0.08)] backdrop-blur-md sm:p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose-500">
+            Gallery Archive
+          </p>
+          <h3 className="mt-1 font-heading text-3xl text-rose-950">
+            Photos By Category
+          </h3>
+        </div>
+
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-rose-600">
+          <ImageIcon className="size-3.5" />
+          /public/memories/gallery
+        </div>
+      </div>
+
+      <div className="grid gap-4">
+        {categories.map((category) => (
+          <section
+            key={category.title}
+            className="rounded-[1.8rem] border border-white/70 bg-white/70 p-4 shadow-[0_18px_42px_rgba(190,24,93,0.08)]"
+          >
+            <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+              <div className="space-y-1">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-500">
+                  {category.folder}
+                </p>
+                <h4 className="font-heading text-2xl text-rose-950">{category.title}</h4>
+                <p className="max-w-xl text-sm leading-6 text-rose-950/68">
+                  {category.description}
+                </p>
+              </div>
+
+              <span className="rounded-full border border-rose-200 bg-rose-50 px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-rose-600">
+                {category.photos.length} Slots
+              </span>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {category.photos.map((photo) => (
+                <MemoryPhotoCard key={photo.src} photo={photo} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-rose-50/55 px-4 py-3 text-sm leading-6 text-rose-950/70">
+        Keep your real photos organized by category inside
+        {" "}
+        <span className="font-semibold text-rose-700">/public/memories/gallery</span>
+        {" "}
+        and replace these placeholders whenever you are ready.
       </div>
     </section>
   );
@@ -329,9 +403,169 @@ export function MemoryBook() {
         "Turn the page whenever you want proof that being apart has never made us any less true.",
     },
     {
+      id: "gallery",
+      label: "Gallery",
+      eyebrow: "Chapter One",
+      title: "Our Gallery Archive",
+      subtitle: "A dedicated page where your memories can be stored by category.",
+      intro:
+        "Some photos belong in the story pages, but some deserve a proper archive of their own. This chapter gives you one place to organize the relationship by mood, moment, and meaning.",
+      quote:
+        "The more our love grows, the more beautiful it becomes to keep it well organized.",
+      chips: ["Category archive", "Easy photo sorting", "Made for future memories"],
+      photos: [],
+      galleryCategories: [
+        {
+          title: "Together Moments",
+          description: "Your favorite couple shots, selfies, or moments where the two of you feel closest.",
+          folder: "gallery/together",
+          photos: [
+            {
+              src: "/memories/gallery/together-01.svg",
+              alt: "Together moments placeholder one for Bondeth and Salyna",
+              caption: "Together 01",
+              hint: "Use this for one of your happiest photos together.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/together-02.svg",
+              alt: "Together moments placeholder two for Bondeth and Salyna",
+              caption: "Together 02",
+              hint: "Another couple memory can live here as the archive grows.",
+              frameClassName: "aspect-[4/5]",
+            },
+          ],
+        },
+        {
+          title: "Video Calls",
+          description: "Screenshots from calls, chats, or ordinary nights that still mattered because you were there.",
+          folder: "gallery/calls",
+          photos: [
+            {
+              src: "/memories/gallery/calls-01.svg",
+              alt: "Video call placeholder one for Bondeth and Salyna",
+              caption: "Call 01",
+              hint: "Perfect for a screenshot from a late-night call.",
+              frameClassName: "aspect-[16/10]",
+            },
+            {
+              src: "/memories/gallery/calls-02.svg",
+              alt: "Video call placeholder two for Bondeth and Salyna",
+              caption: "Call 02",
+              hint: "Use this for another sweet moment from distance.",
+              frameClassName: "aspect-[16/10]",
+            },
+          ],
+        },
+        {
+          title: "Dates & Gifts",
+          description: "Anniversaries, flowers, notes, gifts, and the little gestures that mark important relationship milestones.",
+          folder: "gallery/dates",
+          photos: [
+            {
+              src: "/memories/gallery/dates-01.svg",
+              alt: "Dates and gifts placeholder one for Bondeth and Salyna",
+              caption: "Dates 01",
+              hint: "A gift photo, cake, flowers, or dating-day memory would fit well.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/dates-02.svg",
+              alt: "Dates and gifts placeholder two for Bondeth and Salyna",
+              caption: "Dates 02",
+              hint: "Another meaningful milestone can be saved here.",
+              frameClassName: "aspect-[4/5]",
+            },
+          ],
+        },
+        {
+          title: "Salyna",
+          description: "A space just for her portraits, study moments, and the photos that make this book feel especially personal.",
+          folder: "gallery/salyna",
+          photos: [
+            {
+              src: "/memories/gallery/salyna-01.svg",
+              alt: "Salyna placeholder one for the gallery archive",
+              caption: "Salyna 01",
+              hint: "Use one of her most beautiful portraits here.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/salyna-02.svg",
+              alt: "Salyna placeholder two for the gallery archive",
+              caption: "Salyna 02",
+              hint: "A candid or study photo would also look lovely here.",
+              frameClassName: "aspect-[4/5]",
+            },
+          ],
+        },
+        {
+          title: "Bondeth",
+          description: "Your own side of the story: portraits, work-life snapshots, or moments from Cambodia that belong in the memory book too.",
+          folder: "gallery/bondeth",
+          photos: [
+            {
+              src: "/memories/gallery/bondeth-01.svg",
+              alt: "Bondeth placeholder one for the gallery archive",
+              caption: "Bondeth 01",
+              hint: "A portrait or coding-life photo can go here.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/bondeth-02.svg",
+              alt: "Bondeth placeholder two for the gallery archive",
+              caption: "Bondeth 02",
+              hint: "Save another moment from your life in Cambodia here.",
+              frameClassName: "aspect-[4/5]",
+            },
+          ],
+        },
+        {
+          title: "Future Us",
+          description: "A category reserved for the memories you have not made yet: reunions, trips, anniversaries, and the days after distance.",
+          folder: "gallery/future",
+          photos: [
+            {
+              src: "/memories/gallery/future-01.svg",
+              alt: "Future us placeholder one for Bondeth and Salyna",
+              caption: "Future 01",
+              hint: "A reunion or travel photo will be powerful here later.",
+              frameClassName: "aspect-[16/10]",
+            },
+            {
+              src: "/memories/gallery/future-02.svg",
+              alt: "Future us placeholder two for Bondeth and Salyna",
+              caption: "Future 02",
+              hint: "Keep this ready for a future anniversary or new chapter.",
+              frameClassName: "aspect-[16/10]",
+            },
+          ],
+        },
+      ],
+      cards: [
+        {
+          icon: ImageIcon,
+          title: "Organized by meaning",
+          body: "Instead of dropping every image into one place, this page gives your memories categories that will still make sense later.",
+        },
+        {
+          icon: Heart,
+          title: "Built to keep growing",
+          body: "You can keep adding new photos as the relationship grows without needing to redesign the whole book every time.",
+        },
+        {
+          icon: Sparkles,
+          title: "Made for real memories",
+          body: "Right now the gallery uses placeholders, but the layout is ready for your real pictures whenever you want to swap them in.",
+        },
+      ],
+      note:
+        "This chapter is meant to become your real archive over time, not just decoration.",
+    },
+    {
       id: "dreams",
       label: "Two Dreams",
-      eyebrow: "Chapter One",
+      eyebrow: "Chapter Two",
       title: "Two Dreams, One Heart",
       subtitle: "You in Australia. Me in Cambodia. Both of us still choosing the same love.",
       intro:
@@ -386,7 +620,7 @@ export function MemoryBook() {
     {
       id: "distance",
       label: "Distance",
-      eyebrow: "Chapter Two",
+      eyebrow: "Chapter Three",
       title: "What Distance Cannot Take",
       subtitle: "The miles can delay hugs, but they cannot cancel belonging.",
       intro:
@@ -435,7 +669,7 @@ export function MemoryBook() {
     {
       id: "dates",
       label: "Milestones",
-      eyebrow: "Chapter Three",
+      eyebrow: "Chapter Four",
       title: "Our Dates, Written In Pink",
       subtitle: "The calendar became romantic the moment it started holding us.",
       intro:
@@ -484,7 +718,7 @@ export function MemoryBook() {
     {
       id: "adore",
       label: "Adoration",
-      eyebrow: "Chapter Four",
+      eyebrow: "Chapter Five",
       title: "The Things I Love About You",
       subtitle: "Not just the way you are loved, but the way you are built.",
       intro:
@@ -533,7 +767,7 @@ export function MemoryBook() {
     {
       id: "future",
       label: "Future",
-      eyebrow: "Chapter Five",
+      eyebrow: "Chapter Six",
       title: "The Future Chapter",
       subtitle: "One day the distance will only be part of our origin story.",
       intro:
@@ -586,6 +820,14 @@ export function MemoryBook() {
         "This is my little reminder that the future is not empty space. It is a room I am already decorating with hope for us.",
     },
   ];
+
+  const totalPhotoSlots = pages.reduce((total, page) => {
+    const storyPhotos = page.photos.length;
+    const categorizedPhotos =
+      page.galleryCategories?.reduce((sum, category) => sum + category.photos.length, 0) ?? 0;
+
+    return total + storyPhotos + categorizedPhotos;
+  }, 0);
 
   const page = pages[currentPage];
   const theme = PAGE_THEMES[currentPage % PAGE_THEMES.length];
@@ -690,7 +932,7 @@ export function MemoryBook() {
                   Your story started on {formatDate(RELATIONSHIP_START)}, and your first
                   anniversary will arrive on {formatDate(FIRST_ANNIVERSARY)}.
                 </p>
-                <p>15 placeholder photo slots are ready for you in the album.</p>
+                <p>{totalPhotoSlots} placeholder photo slots are ready for you in the album.</p>
               </div>
             </div>
           </aside>
@@ -765,7 +1007,11 @@ export function MemoryBook() {
                   </div>
 
                   <div className="flex flex-col gap-4">
-                    <MemoryGallery photos={page.photos} />
+                    {page.galleryCategories ? (
+                      <CategorizedGallery categories={page.galleryCategories} />
+                    ) : (
+                      <MemoryGallery photos={page.photos} />
+                    )}
 
                     {page.cards.map((card) => (
                       <div
