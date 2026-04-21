@@ -24,11 +24,6 @@ export const BOOK_ROUTES: BookRouteEntry[] = [
     page: createCoverPage(),
   },
   {
-    id: "gallery",
-    href: "/gallery",
-    page: createGalleryPage(),
-  },
-  {
     id: "dreams",
     href: "/dreams",
     page: createDreamsPage(),
@@ -52,6 +47,11 @@ export const BOOK_ROUTES: BookRouteEntry[] = [
     id: "future",
     href: "/future",
     page: createFuturePage(),
+  },
+  {
+    id: "gallery",
+    href: "/gallery",
+    page: createGalleryPage(),
   },
 ];
 

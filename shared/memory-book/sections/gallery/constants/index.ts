@@ -5,45 +5,45 @@ import type { BookPage, GalleryCategory } from "@/components/memory-book/types";
 export function createGalleryPage(): BookPage {
   return {
     id: "gallery",
-    label: "Gallery",
-    eyebrow: "Chapter One",
+    label: "Archive",
+    eyebrow: "Final Chapter",
     title: "Our Gallery Archive",
-    subtitle: "A dedicated page where your memories can be stored by category.",
+    subtitle: "The place where our real photos can keep every smile, visit, date, and goodbye safe.",
     intro:
-      "Some photos belong in the story pages, but some deserve a proper archive of their own. This chapter gives you one place to organize the relationship by mood, moment, and meaning.",
+      "Our story deserves a beautiful place for its real images. When you replace these placeholders with our photos, I want this chapter to feel like opening a private museum of us.",
     quote:
-      "The more our love grows, the more beautiful it becomes to keep it well organized.",
-    chips: ["Category archive", "Easy photo sorting", "Made for future memories"],
+      "Every picture of us is proof that love happened here.",
+    chips: ["January 2026", "Calls across countries", "Future memories waiting"],
     photos: [],
     galleryCategories: createGalleryCategories(),
     cards: [
       {
         icon: ImageIcon,
-        title: "Organized by meaning",
-        body: "Instead of dropping every image into one place, this page gives your memories categories that will still make sense later.",
+        title: "A place for what mattered",
+        body: "I want the real photos of our relationship to live somewhere that feels intentional, not forgotten in a random folder.",
       },
       {
         icon: Heart,
-        title: "Built to keep growing",
-        body: "You can keep adding new photos as the relationship grows without needing to redesign the whole book every time.",
+        title: "A place for January and February 2026",
+        body: "The days you spent in Cambodia deserve their own home here, because they are some of the most precious memories I have of us.",
       },
       {
         icon: Sparkles,
-        title: "Made for real memories",
-        body: "Right now the gallery uses placeholders, but the layout is ready for your real pictures whenever you want to swap them in.",
+        title: "A place for what is still coming",
+        body: "This archive is not only for what we already lived. It is also waiting for the photos we have not taken yet.",
       },
     ],
     note:
-      "This chapter is meant to become your real archive over time, not just decoration.",
+      "I want this archive to keep growing with us until the distance becomes only one small chapter in a much bigger love story.",
   };
 }
 
 function createGalleryCategories(): GalleryCategory[] {
   return [
     {
-      title: "Together Moments",
+      title: "Together In Cambodia",
       description:
-        "Your favorite couple shots, selfies, or moments where the two of you feel closest.",
+        "Photos from the time Salyna came to Cambodia and turned ordinary days into unforgettable memories.",
       folder: "gallery/together",
       photos: [
         {
@@ -79,7 +79,7 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Video Calls",
       description:
-        "Screenshots from calls, chats, or ordinary nights that still mattered because you were there.",
+        "Screenshots from calls, chats, and the little conversations that carried love across Cambodia and Australia.",
       folder: "gallery/calls",
       photos: [
         {
@@ -115,7 +115,7 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Dates & Gifts",
       description:
-        "Anniversaries, flowers, notes, gifts, and the little gestures that mark important relationship milestones.",
+        "Anniversaries, flowers, notes, gifts, and the little gestures that made love feel tangible.",
       folder: "gallery/dates",
       photos: [
         {
@@ -149,9 +149,9 @@ function createGalleryCategories(): GalleryCategory[] {
       ],
     },
     {
-      title: "Salyna",
+      title: "Salyna, My Smart Girl",
       description:
-        "A space just for her portraits, study moments, and the photos that make this book feel especially personal.",
+        "A space for her portraits, study moments, and the photos that remind Bondeth how beautiful and brilliant she is.",
       folder: "gallery/salyna",
       photos: [
         {
@@ -185,9 +185,9 @@ function createGalleryCategories(): GalleryCategory[] {
       ],
     },
     {
-      title: "Bondeth",
+      title: "Bondeth In Cambodia",
       description:
-        "Your own side of the story: portraits, work-life snapshots, or moments from Cambodia that belong in the memory book too.",
+        "Bondeth's side of the story: portraits, work-life snapshots, and the days spent waiting and working toward the future.",
       folder: "gallery/bondeth",
       photos: [
         {
@@ -221,9 +221,9 @@ function createGalleryCategories(): GalleryCategory[] {
       ],
     },
     {
-      title: "Future Us",
+      title: "Our Future In Australia",
       description:
-        "A category reserved for the memories you have not made yet: reunions, trips, anniversaries, and the days after distance.",
+        "A category reserved for the memories still waiting for you: reunions, the 2027 move, future anniversaries, and the life after distance.",
       folder: "gallery/future",
       photos: [
         {

@@ -88,7 +88,7 @@ export function MemoryBookShell({
 
           <AnimatedText
             as="h1"
-            text="A modern love book for your long-distance story."
+            text="For Salyna, with all my love."
             className="max-w-4xl font-heading text-5xl leading-none tracking-tight text-rose-950 sm:text-6xl lg:text-7xl"
             delay={0.16}
             stagger={0.05}
@@ -96,7 +96,7 @@ export function MemoryBookShell({
 
           <AnimatedText
             as="p"
-            text="This keepsake is designed like a digital scrapbook in motion: soft pink light, floating hearts, and pages you can flip through whenever you miss each other."
+            text="From Bondeth in Cambodia to Salyna in Australia, this little book keeps our first date on September 1, 2025, your January 2026 visit, the February 2026 goodbye, and the future I am preparing for us in 2027."
             className="max-w-2xl text-base leading-7 text-rose-950/75 sm:text-lg"
             delay={0.34}
             duration={0.72}
@@ -152,10 +152,14 @@ export function MemoryBookShell({
               <div className="grid gap-3 text-sm leading-6 text-rose-100/88">
                 <p>{daysTogether} days of choosing each other.</p>
                 <p>
-                  Your story started on {formatDate(RELATIONSHIP_START)}, and your first
-                  anniversary will arrive on {formatDate(FIRST_ANNIVERSARY)}.
+                  Your story began on {formatDate(RELATIONSHIP_START)}, your first
+                  anniversary will be on {formatDate(FIRST_ANNIVERSARY)}, and your next
+                  big promise is Australia in 2027.
                 </p>
-                <p>{TOTAL_PHOTO_SLOTS} placeholder photo slots are ready for you in the album.</p>
+                <p>
+                  {TOTAL_PHOTO_SLOTS} photo spaces are ready to hold January 2026,
+                  February 2026, and every chapter that still waits for you both.
+                </p>
               </div>
             </div>
           </aside>

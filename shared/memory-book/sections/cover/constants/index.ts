@@ -6,18 +6,18 @@ import type { BookPage } from "@/components/memory-book/types";
 export function createCoverPage(): BookPage {
   return {
     id: "cover",
-    label: "Cover",
+    label: "Letter",
     eyebrow: "For Salyna, from Bondeth",
-    title: "Our Long-Distance Love Story",
-    subtitle: "A pink digital memory book made between Cambodia and Australia.",
+    title: "For The Girl I Will Always Choose",
+    subtitle: "A digital love book from Bondeth in Cambodia to Salyna in Australia.",
     intro:
-      "I wanted to build something softer than code and warmer than a message bubble, so this little book became my way of holding your hand from far away.",
+      "I know I am a software engineer and I usually build with logic, but loving you makes me want to build softer things too. This little book is my way of gathering what I feel for you into one place, so whenever you open it, you can see how deeply you are loved.",
     quote:
-      "Distance can stretch the map, but it still cannot measure what I feel for you.",
+      "No distance, no airport, and no clock has ever changed the fact that my heart is yours.",
     chips: [
       "Cambodia to Australia",
       `Started dating: ${formatDate(RELATIONSHIP_START)}`,
-      "Version one of many",
+      "Made with all my love",
     ],
     photos: [
       {
@@ -46,21 +46,21 @@ export function createCoverPage(): BookPage {
     cards: [
       {
         icon: Heart,
-        title: "Made with intention",
-        body: "Every page is a quiet reminder that our relationship is real, alive, and worth celebrating.",
+        title: "Why I made this",
+        body: "I wanted more than messages and screenshots. I wanted you to have one place that feels like my heart speaking directly to yours.",
       },
       {
         icon: Sparkles,
-        title: "Made to feel close",
-        body: "When the distance feels heavy, I want this book to feel like a gentle place where love still wins.",
+        title: "What you mean to me",
+        body: "You are not a small part of my life. You are someone I miss, admire, protect in prayer, and imagine in my future every single day.",
       },
       {
         icon: BookOpen,
-        title: "Made to keep growing",
-        body: "This is only the first edition. Our story still has so many chapters waiting for us.",
+        title: "What this book holds",
+        body: "It holds our first date, your visit to Cambodia in January 2026, the ache of February 2026, and the promise I want to keep in 2027.",
       },
     ],
     note:
-      "Turn the page whenever you want proof that being apart has never made us any less true.",
+      "Salyna, I wanted this to feel like more than a website. I wanted it to feel like me sitting beside you, reminding you that you are loved, missed, admired, and chosen every single day.",
   };
 }

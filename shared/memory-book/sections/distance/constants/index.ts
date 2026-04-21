@@ -5,15 +5,15 @@ import type { BookPage } from "@/components/memory-book/types";
 export function createDistancePage(): BookPage {
   return {
     id: "distance",
-    label: "Distance",
-    eyebrow: "Chapter Three",
-    title: "What Distance Cannot Take",
-    subtitle: "The miles can delay hugs, but they cannot cancel belonging.",
+    label: "After Goodbye",
+    eyebrow: "Chapter Two",
+    title: "After February 2026",
+    subtitle: "When you went back to Australia in February 2026, the distance returned, but so did my certainty.",
     intro:
-      "Long distance has a strange way of refining love. It turns ordinary things into treasures: a call, a goodnight, a photo, a soft sentence at the right moment, a promise to stay steady until the next hello.",
+      "The goodbye hurt because being with you had already started to feel natural to me. But even after you flew back to Australia in February 2026, my love did not become smaller. It became clearer. Missing you only showed me how serious my heart is about you.",
     quote:
-      "Love becomes very honest when it learns how to wait without growing cold.",
-    chips: ["Late-night calls", "Patience", "Steadiness"],
+      "Loving you from far away is hard, but not loving you would be impossible.",
+    chips: ["February 2026", "Calls and messages", "Still choosing us"],
     photos: [
       {
         src: "/memories/distance-01.svg",
@@ -35,21 +35,21 @@ export function createDistancePage(): BookPage {
     cards: [
       {
         icon: Sparkles,
-        title: "The little rituals",
-        body: "Messages, check-ins, and quiet reassurances become their own kind of shelter when the day feels long.",
+        title: "The ache",
+        body: "I will never pretend that distance is easy. There are days when missing you sits heavily in my chest because I know how good it feels to have you near.",
       },
       {
         icon: Heart,
-        title: "The emotional truth",
-        body: "Even from far away, you still feel familiar to me, like someone my heart already knows how to return to.",
+        title: "The routine",
+        body: "Calls, messages, little updates, and all the quiet ways we stay connected became the thread that kept my days tied to yours after you went back.",
       },
       {
         icon: Star,
-        title: "The deeper lesson",
-        body: "Distance keeps teaching me that real love is not only intensity. It is consistency, gentleness, and staying present.",
+        title: "The truth",
+        body: "Even when I miss you the most, I never question what you mean to me. My heart stays sure about you.",
       },
     ],
     note:
-      "We are learning the kind of love that survives quiet nights, busy days, and every hour in between.",
+      "Even on the nights I miss you the most, I never question us. I only wish I could hold you sooner.",
   };
 }

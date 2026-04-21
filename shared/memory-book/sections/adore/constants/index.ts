@@ -6,14 +6,14 @@ export function createAdorePage(): BookPage {
   return {
     id: "adore",
     label: "Adoration",
-    eyebrow: "Chapter Five",
-    title: "The Things I Love About You",
-    subtitle: "Not just the way you are loved, but the way you are built.",
+    eyebrow: "Chapter Four",
+    title: "What I Deeply Admire About You",
+    subtitle: "I love your beauty, but I also love your mind, your discipline, and the way you shine.",
     intro:
-      "I love more than your smile or your sweetness. I love the structure underneath: the mind, the discipline, the courage, the grace. You are beautiful in ways that keep unfolding.",
+      "Salyna, one of the reasons I love you so much is because you are not only sweet, you are remarkable. You are smart. You are an outstanding student. You work hard for your future. You carry ambition and grace together, and every time I think about the woman you are becoming, I feel proud that I get to love you.",
     quote:
-      "You are the kind of person who makes admiration feel as natural as breathing.",
-    chips: ["Brilliant", "Tender", "Disciplined", "Radiant"],
+      "You are beautiful to me because your heart and your mind both shine.",
+    chips: ["Smart", "Outstanding student", "Soft and strong", "My favorite person"],
     photos: [
       {
         src: "/memories/adore-01.svg",
@@ -35,21 +35,21 @@ export function createAdorePage(): BookPage {
     cards: [
       {
         icon: GraduationCap,
-        title: "Your ambition",
-        body: "The way you commit to your future is deeply attractive. You make hard things look meaningful.",
+        title: "Your mind",
+        body: "You are intelligent in a way that makes me admire you even more. I love listening to your thoughts because there is depth, focus, and brightness in you.",
       },
       {
         icon: Heart,
-        title: "Your softness",
-        body: "There is warmth in you that makes distance feel less sharp. You know how to comfort without losing your own strength.",
+        title: "Your heart",
+        body: "No matter how talented and capable you are, you still keep a softness that feels gentle, warm, and deeply human. That softness is one of the reasons I feel safe loving you.",
       },
       {
         icon: Sparkles,
-        title: "Your presence",
-        body: "You leave a brightness behind in conversations, in memories, and in the quiet after I think about you.",
+        title: "Your discipline",
+        body: "You are building something serious with your studies, and I respect that so much. Your effort makes me proud because I know how much you want to become something great.",
       },
     ],
     note:
-      "You are not simply someone I miss. You are someone I deeply respect, which makes loving you feel even more beautiful.",
+      "The more I know you, the more I respect you. And the more I respect you, the more deeply I fall in love with you.",
   };
 }

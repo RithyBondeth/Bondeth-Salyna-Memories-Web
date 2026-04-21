@@ -5,15 +5,15 @@ import type { BookPage } from "@/components/memory-book/types";
 export function createFuturePage(): BookPage {
   return {
     id: "future",
-    label: "Future",
-    eyebrow: "Chapter Six",
-    title: "The Future Chapter",
-    subtitle: "One day the distance will only be part of our origin story.",
+    label: "Promise",
+    eyebrow: "Chapter Five",
+    title: "The Future I Am Walking Toward",
+    subtitle: "I am not only dreaming about us. I am preparing for us.",
     intro:
-      "I keep imagining the ordinary things we have not had enough of yet: longer walks, easier laughter, shared meals, small routines, no countdown to the next goodbye. I want the everyday with you, not only the dramatic parts.",
+      "You are building your future in Australia with courage and intelligence. I am building mine in Cambodia as a software engineer. But in my heart, I am also building a bridge toward you. I mean it when I say I want to move to Australia in 2027. I want to be closer to you, support your dream, and build an everyday life where love no longer has to travel so far.",
     quote:
-      "Until we close the distance, I will keep loving you in patient, practical, and beautiful ways.",
-    chips: ["Future reunions", "More anniversaries", "A life with room for both dreams"],
+      "My love for you is not only emotional. It is a promise I want to turn into real life.",
+    chips: ["Australia 2027", "Software engineer", "Doctorate dream", "A home for us"],
     photos: [
       {
         src: "/memories/future-01.svg",
@@ -41,21 +41,21 @@ export function createFuturePage(): BookPage {
     cards: [
       {
         icon: Plane,
-        title: "The reunion I imagine",
-        body: "An airport, a real embrace, and the kind of silence that comes when finally being together says enough on its own.",
+        title: "My promise",
+        body: "I do not want to keep saying 'one day' forever. I want to move toward you with real intention and make our future something we can actually live inside.",
       },
       {
         icon: MapPin,
-        title: "The life I imagine",
-        body: "A shared place in the world where your ambition and my work can both keep growing without asking us to stay apart.",
+        title: "Your dream matters to me",
+        body: "I do not want to stand in the way of your doctorate. I want to be someone who supports your dream, protects your peace, and celebrates how far you will go.",
       },
       {
         icon: Heart,
-        title: "The promise I keep",
-        body: "No matter how much more our story asks from us, I want to keep meeting it with loyalty, gentleness, and effort.",
+        title: "The life I imagine",
+        body: "A life where we no longer need airports to measure love. Just ordinary mornings, shared meals, your studies, my work, and a home that finally belongs to both of us.",
       },
     ],
     note:
-      "This is my little reminder that the future is not empty space. It is a room I am already decorating with hope for us.",
+      "I cannot promise that every step will be easy, but I can promise that my love for you is serious, loyal, and moving forward.",
   };
 }

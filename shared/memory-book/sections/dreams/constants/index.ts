@@ -5,15 +5,15 @@ import type { BookPage } from "@/components/memory-book/types";
 export function createDreamsPage(): BookPage {
   return {
     id: "dreams",
-    label: "Two Dreams",
-    eyebrow: "Chapter Two",
-    title: "Two Dreams, One Heart",
-    subtitle: "You in Australia. Me in Cambodia. Both of us still choosing the same love.",
+    label: "Your Visit",
+    eyebrow: "Chapter One",
+    title: "When You Came To Cambodia",
+    subtitle: "January 2026 became one of the most beautiful chapters of my life because you were here with me.",
     intro:
-      "You are pursuing your doctorate with courage and brilliance in Australia, while I’m in Cambodia building software and building a future I still hope will include us standing in the same room, finally without the miles.",
+      "When you came to visit me in Cambodia in January 2026, the world felt softer and fuller. Ordinary days stopped feeling ordinary. Every walk, every meal, every laugh, and every quiet moment beside you became a memory I still replay in my heart.",
     quote:
-      "I admire how gently you carry a dream that big, and how beautifully you still make room for us.",
-    chips: ["Software engineer", "Doctorate journey", "Ambition with tenderness"],
+      "You did not just visit me. You turned time itself into something I never wanted to lose.",
+    chips: ["January 2026", "Cambodia together", "Memories I replay"],
     photos: [
       {
         src: "/memories/journey-01.svg",
@@ -41,21 +41,21 @@ export function createDreamsPage(): BookPage {
     cards: [
       {
         icon: Code2,
-        title: "My chapter",
-        body: "I spend my days solving problems, writing code, and learning how to build stable things, including the way I love you.",
+        title: "Your arrival",
+        body: "Seeing you in front of me instead of on a screen felt unreal in the best way. It reminded me how much light your presence brings into my life.",
       },
       {
         icon: GraduationCap,
-        title: "Your chapter",
-        body: "You are chasing a doctorate, and every step you take makes me even more proud to know the kind of woman you are.",
+        title: "The little days",
+        body: "What I loved most was not one dramatic moment. It was the simple things: being near you, hearing you laugh beside me, and sharing time that felt easy and precious.",
       },
       {
         icon: Plane,
-        title: "Our shared chapter",
-        body: "Even from different countries, we keep meeting each other with patience, effort, and the kind of love that does not give up easily.",
+        title: "The month that stayed",
+        body: "Even after you left, January 2026 stayed with me. It still feels warm inside my memory because it was filled with you.",
       },
     ],
     note:
-      "What we are building is not small. It is distance-tested, future-facing, and deeply sincere.",
+      "If I could pause one season of my life and step back into it whenever I missed you too much, I would step back into the days you were here with me.",
   };
 }

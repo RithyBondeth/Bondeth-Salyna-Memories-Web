@@ -51,8 +51,13 @@ export function StoryPage({
           {page.intro}
         </p>
 
-        <blockquote className="rounded-[1.8rem] border border-white/70 bg-white/62 p-5 font-heading text-2xl leading-9 text-rose-900 shadow-[0_18px_40px_rgba(190,24,93,0.08)]">
-          “{page.quote}”
+        <blockquote className="relative rounded-[1.8rem] border border-white/70 bg-white/62 p-5 shadow-[0_18px_40px_rgba(190,24,93,0.08)]">
+          <span className="pointer-events-none absolute left-4 top-2 font-heading text-6xl leading-none text-rose-200/90">
+            “
+          </span>
+          <p className="pl-7 font-heading text-2xl leading-9 text-rose-900">
+            {page.quote}”
+          </p>
         </blockquote>
 
         <div className="flex flex-wrap gap-3">
@@ -70,8 +75,8 @@ export function StoryPage({
         </div>
 
         <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-white/52 px-5 py-4 text-sm leading-6 text-rose-950/70">
-          This chapter includes local placeholder artwork so you can replace it
-          later with real photos without touching the layout.
+          Every frame in this chapter is waiting for the real photos of your story,
+          so this page can slowly become more and more yours.
         </div>
       </div>
 
@@ -100,8 +105,13 @@ export function StoryPage({
           </div>
         ))}
 
-        <div className="rounded-[1.8rem] border border-dashed border-rose-300/80 bg-white/54 p-5 text-sm leading-7 text-rose-950/72">
-          {page.note}
+        <div className="rounded-[1.8rem] border border-rose-200/80 bg-rose-50/72 p-5 shadow-[0_18px_42px_rgba(190,24,93,0.06)]">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-rose-500">
+            A Note From Bondeth
+          </p>
+          <p className="mt-3 text-sm leading-7 text-rose-950/76 sm:text-[0.98rem]">
+            {page.note}
+          </p>
         </div>
       </div>
     </div>
