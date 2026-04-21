@@ -16,20 +16,20 @@ export function createCoverPage(): BookPage {
       "Some love stories return at the right time and finally learn how to stay.",
     photos: [
       {
-        src: "/assets/cover/cover-01.png",
+        src: "/assets/cover/cover-01.jpg",
         alt: "Cover placeholder for Bondeth and Salyna's digital memory book",
         caption: "Us",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/assets/cover/cover-02.png",
+        src: "/assets/cover/cover-02.jpg",
         alt: "Cover portrait placeholder",
         caption: "Your smile",
         frameClassName: "aspect-[4/5]",
       },
       {
-        src: "/assets/cover/cover-03.png",
+        src: "/assets/cover/cover-03.jpg",
         alt: "Cover candid placeholder",
         caption: "A quiet moment",
         frameClassName: "aspect-[4/5]",
@@ -47,7 +47,6 @@ export function createCoverPage(): BookPage {
         body: "How we first met in 2022 while you were in Siem Reap and I was in Phnom Penh. How June 2025 brought us back to each other. The first time I saw you in person in January 2026 and the promise ring I put on your hand. The things I notice about you, and the memories I never want to lose.",
       },
     ],
-    note:
-      "If you're reading this, you've just opened something I have been carrying in my chest for a long time. Take your time with it. I am right here.",
+    note: "If you're reading this, you've just opened something I have been carrying in my chest for a long time. Take your time with it. I am right here.",
   };
 }
