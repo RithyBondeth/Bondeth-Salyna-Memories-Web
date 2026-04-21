@@ -102,7 +102,7 @@ export function MemoryBookShell({
                       "rounded-[1.4rem] border px-4 py-3 text-left transition-all",
                       isActive
                         ? "border-rose-300 bg-rose-100/90 shadow-[0_18px_40px_rgba(225,29,72,0.14)]"
-                        : "border-white/60 bg-white/60 hover:-translate-y-0.5 hover:bg-white/80"
+                        : "border-white/60 bg-white/60 hover:-translate-y-0.5 hover:bg-white/80",
                     )}
                   >
                     <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-500">
@@ -128,13 +128,13 @@ export function MemoryBookShell({
               className={cn(
                 "page-card relative w-full overflow-hidden rounded-[2.6rem] border bg-gradient-to-br p-1 shadow-[0_36px_120px_rgba(136,19,55,0.18)]",
                 currentPageState.theme.edge,
-                currentPageState.theme.frame
+                currentPageState.theme.frame,
               )}
             >
               <div
                 className={cn(
                   "absolute inset-0 bg-gradient-to-br opacity-90",
-                  currentPageState.theme.halo
+                  currentPageState.theme.halo,
                 )}
               />
               <div className="paper-sheen absolute inset-0" />
@@ -167,7 +167,7 @@ export function MemoryBookShell({
                     "h-2.5 rounded-full transition-all",
                     entry.id === currentPageState.route.id
                       ? "w-14 bg-rose-500"
-                      : "w-7 bg-rose-200 hover:bg-rose-300"
+                      : "w-7 bg-rose-200 hover:bg-rose-300",
                   )}
                 />
               ))}
