@@ -82,7 +82,8 @@ export function BackgroundMusic() {
         onClick={toggle}
         aria-label={isPlaying ? "Pause background music" : "Play background music"}
         className={cn(
-          "fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/80 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-rose-700 shadow-[0_14px_38px_rgba(190,24,93,0.2)] backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-white",
+          "fixed right-4 z-50 inline-flex items-center gap-2 rounded-full border border-rose-200/60 bg-gradient-to-r from-white/88 to-rose-50/80 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-rose-600 shadow-[0_10px_32px_rgba(190,24,93,0.18)] backdrop-blur-md transition-all active:scale-95 hover:-translate-y-0.5 hover:from-white hover:to-rose-50 hover:shadow-[0_14px_38px_rgba(190,24,93,0.24)]",
+          "bottom-[6rem] lg:bottom-6 lg:right-6",
           !hasStarted && "motion-safe:animate-pulse",
         )}
       >
