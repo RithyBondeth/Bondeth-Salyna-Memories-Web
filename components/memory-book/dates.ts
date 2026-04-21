@@ -18,7 +18,9 @@ export function formatDate(date: Date) {
   }).format(date);
 }
 
-export function getRelationshipMetrics(today = REFERENCE_TODAY): RelationshipMetrics {
+export function getRelationshipMetrics(
+  today = REFERENCE_TODAY,
+): RelationshipMetrics {
   return {
     bondethAge: getAge(BONDETH_BIRTHDAY, today),
     salynaAge: getAge(SALYNA_BIRTHDAY, today),
@@ -35,7 +37,8 @@ function getAge(birthday: Date, today: Date) {
   let age = today.getFullYear() - birthday.getFullYear();
   const hasNotHadBirthdayYet =
     today.getMonth() < birthday.getMonth() ||
-    (today.getMonth() === birthday.getMonth() && today.getDate() < birthday.getDate());
+    (today.getMonth() === birthday.getMonth() &&
+      today.getDate() < birthday.getDate());
 
   if (hasNotHadBirthdayYet) {
     age -= 1;
@@ -51,7 +54,8 @@ function getDaysBetween(from: Date, to: Date) {
 
 function getMonthsBetween(from: Date, to: Date) {
   const totalMonths =
-    (to.getFullYear() - from.getFullYear()) * 12 + (to.getMonth() - from.getMonth());
+    (to.getFullYear() - from.getFullYear()) * 12 +
+    (to.getMonth() - from.getMonth());
 
   return to.getDate() >= from.getDate() ? totalMonths : totalMonths - 1;
 }

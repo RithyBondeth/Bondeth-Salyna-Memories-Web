@@ -51,7 +51,7 @@ export function StoryPage({
               key={chip}
               className={cn(
                 "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em]",
-                theme.chip
+                theme.chip,
               )}
             >
               {chip}
@@ -60,8 +60,8 @@ export function StoryPage({
         </div>
 
         <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-white/52 px-5 py-4 text-sm leading-6 text-rose-950/70">
-          This chapter includes local placeholder artwork so you can replace it later with
-          real photos without touching the layout.
+          This chapter includes local placeholder artwork so you can replace it
+          later with real photos without touching the layout.
         </div>
       </div>
 
@@ -73,14 +73,16 @@ export function StoryPage({
             key={card.title}
             className={cn(
               "rounded-[1.8rem] border border-white/68 p-5 shadow-[0_20px_45px_rgba(190,24,93,0.08)] backdrop-blur-md",
-              theme.card
+              theme.card,
             )}
           >
             <div className="mb-4 flex items-center gap-3">
               <div className="rounded-2xl bg-rose-950 p-3 text-rose-50 shadow-[0_10px_24px_rgba(136,19,55,0.22)]">
                 <card.icon className="size-5" />
               </div>
-              <h3 className="font-heading text-2xl text-rose-950">{card.title}</h3>
+              <h3 className="font-heading text-2xl text-rose-950">
+                {card.title}
+              </h3>
             </div>
             <p className="text-sm leading-7 text-rose-950/74 sm:text-[0.98rem]">
               {card.body}

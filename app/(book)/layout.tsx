@@ -1,51 +1,46 @@
 "use client";
 
-import { startTransition, useEffect, useEffectEvent, useState } from "react";
+import { startTransition, useEffect, useEffectEvent } from "react";
 import { ArrowLeft, ArrowRight, Heart } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
-import { PAGE_THEMES } from "./constants";
-import { createBookPages, getTotalPhotoSlots } from "./content";
+import { FloatingHearts } from "@/components/memory-book/floating-hearts";
 import {
   FIRST_ANNIVERSARY,
   formatDate,
   getRelationshipMetrics,
   RELATIONSHIP_START,
-} from "./dates";
-import { FloatingHearts } from "./floating-hearts";
-import { GalleryArchivePage } from "./gallery-archive-page";
-import { StoryPage } from "./story-page";
+} from "@/components/memory-book/dates";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+import { BOOK_ROUTES, getBookRouteStateByPathname, TOTAL_PHOTO_SLOTS } from "./config";
 
 const relationshipMetrics = getRelationshipMetrics();
-const pages = createBookPages(relationshipMetrics);
-const totalPhotoSlots = getTotalPhotoSlots(pages);
 
-export function MemoryBook() {
-  const [currentPage, setCurrentPage] = useState(0);
-
+export default function MemoryBookLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const currentPageState = getBookRouteStateByPathname(pathname);
   const { daysTogether } = relationshipMetrics;
 
-  const page = pages[currentPage];
-  const theme = PAGE_THEMES[currentPage % PAGE_THEMES.length];
-  const isFirstPage = currentPage === 0;
-  const isLastPage = currentPage === pages.length - 1;
-  const isGalleryPage = page.id === "gallery";
-
-  const goToPage = (nextPage: number) => {
+  const goToHref = (href: string) => {
     startTransition(() => {
-      setCurrentPage(nextPage);
+      router.push(href);
     });
   };
 
   const handleKeyboardNavigation = useEffectEvent((event: KeyboardEvent) => {
-    if (event.key === "ArrowRight" && !isLastPage) {
-      goToPage(currentPage + 1);
+    if (event.key === "ArrowRight" && currentPageState.nextRoute) {
+      goToHref(currentPageState.nextRoute.href);
     }
 
-    if (event.key === "ArrowLeft" && !isFirstPage) {
-      goToPage(currentPage - 1);
+    if (event.key === "ArrowLeft" && currentPageState.previousRoute) {
+      goToHref(currentPageState.previousRoute.href);
     }
   });
 
@@ -92,14 +87,14 @@ export function MemoryBook() {
             </div>
 
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-              {pages.map((entry, index) => {
-                const isActive = index === currentPage;
+              {BOOK_ROUTES.map((entry, index) => {
+                const isActive = entry.id === currentPageState.route.id;
 
                 return (
                   <button
                     key={entry.id}
                     type="button"
-                    onClick={() => goToPage(index)}
+                    onClick={() => goToHref(entry.href)}
                     className={cn(
                       "rounded-[1.4rem] border px-4 py-3 text-left transition-all",
                       isActive
@@ -111,10 +106,10 @@ export function MemoryBook() {
                       Page {index + 1}
                     </p>
                     <p className="mt-1 font-heading text-2xl text-rose-950">
-                      {entry.label}
+                      {entry.page.label}
                     </p>
                     <p className="mt-1 text-sm leading-5 text-rose-950/68">
-                      {entry.title}
+                      {entry.page.title}
                     </p>
                   </button>
                 );
@@ -131,7 +126,7 @@ export function MemoryBook() {
                   Your story started on {formatDate(RELATIONSHIP_START)}, and your first
                   anniversary will arrive on {formatDate(FIRST_ANNIVERSARY)}.
                 </p>
-                <p>{totalPhotoSlots} placeholder photo slots are ready for you in the album.</p>
+                <p>{TOTAL_PHOTO_SLOTS} placeholder photo slots are ready for you in the album.</p>
               </div>
             </div>
           </aside>
@@ -141,27 +136,23 @@ export function MemoryBook() {
             <div className="absolute inset-x-3 top-4 h-[92%] rounded-[2.4rem] bg-white/35 shadow-[0_32px_120px_rgba(190,24,93,0.16)] backdrop-blur-md" />
 
             <article
-              key={page.id}
+              key={currentPageState.route.id}
               className={cn(
                 "page-card animate-page-enter relative w-full overflow-hidden rounded-[2.6rem] border bg-gradient-to-br p-1 shadow-[0_36px_120px_rgba(136,19,55,0.18)]",
-                theme.edge,
-                theme.frame
+                currentPageState.theme.edge,
+                currentPageState.theme.frame
               )}
             >
-              <div className={cn("absolute inset-0 bg-gradient-to-br opacity-90", theme.halo)} />
+              <div
+                className={cn(
+                  "absolute inset-0 bg-gradient-to-br opacity-90",
+                  currentPageState.theme.halo
+                )}
+              />
               <div className="paper-sheen absolute inset-0" />
 
               <div className="relative rounded-[2.25rem] border border-white/65 bg-white/38 p-5 backdrop-blur-md sm:p-6 lg:p-8">
-                {isGalleryPage ? (
-                  <GalleryArchivePage page={page} />
-                ) : (
-                  <StoryPage
-                    page={page}
-                    currentPage={currentPage}
-                    pagesLength={pages.length}
-                    theme={theme}
-                  />
-                )}
+                {children}
               </div>
             </article>
           </div>
@@ -173,15 +164,15 @@ export function MemoryBook() {
               Chapter Progress
             </p>
             <div className="flex flex-wrap gap-2">
-              {pages.map((entry, index) => (
+              {BOOK_ROUTES.map((entry) => (
                 <button
                   key={entry.id}
                   type="button"
-                  aria-label={`Go to ${entry.label}`}
-                  onClick={() => goToPage(index)}
+                  aria-label={`Go to ${entry.page.label}`}
+                  onClick={() => goToHref(entry.href)}
                   className={cn(
                     "h-2.5 rounded-full transition-all",
-                    index === currentPage
+                    entry.id === currentPageState.route.id
                       ? "w-14 bg-rose-500"
                       : "w-7 bg-rose-200 hover:bg-rose-300"
                   )}
@@ -195,8 +186,12 @@ export function MemoryBook() {
               type="button"
               variant="outline"
               className="h-12 rounded-full border-rose-300/75 bg-white/75 px-6 text-rose-700 hover:bg-rose-50"
-              onClick={() => goToPage(Math.max(0, currentPage - 1))}
-              disabled={isFirstPage}
+              onClick={() =>
+                currentPageState.previousRoute
+                  ? goToHref(currentPageState.previousRoute.href)
+                  : undefined
+              }
+              disabled={!currentPageState.previousRoute}
             >
               <ArrowLeft className="size-4" />
               Previous Page
@@ -205,8 +200,12 @@ export function MemoryBook() {
             <Button
               type="button"
               className="h-12 rounded-full bg-rose-950 px-6 text-rose-50 hover:bg-rose-900"
-              onClick={() => goToPage(Math.min(pages.length - 1, currentPage + 1))}
-              disabled={isLastPage}
+              onClick={() =>
+                currentPageState.nextRoute
+                  ? goToHref(currentPageState.nextRoute.href)
+                  : undefined
+              }
+              disabled={!currentPageState.nextRoute}
             >
               Next Page
               <ArrowRight className="size-4" />

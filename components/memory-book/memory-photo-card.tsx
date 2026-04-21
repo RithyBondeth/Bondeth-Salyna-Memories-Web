@@ -9,13 +9,13 @@ export function MemoryPhotoCard({ photo }: { photo: MemoryPhoto }) {
     <figure
       className={cn(
         "group rounded-[1.8rem] border border-white/72 bg-white/74 p-3 shadow-[0_18px_42px_rgba(190,24,93,0.08)]",
-        photo.cardClassName
+        photo.cardClassName,
       )}
     >
       <div
         className={cn(
           "relative overflow-hidden rounded-[1.35rem] border border-rose-100 bg-rose-50",
-          photo.frameClassName ?? "aspect-[4/5]"
+          photo.frameClassName ?? "aspect-[4/5]",
         )}
       >
         <Image
@@ -25,7 +25,7 @@ export function MemoryPhotoCard({ photo }: { photo: MemoryPhoto }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 32vw"
           className={cn(
             "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
-            photo.imageClassName
+            photo.imageClassName,
           )}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-rose-950/55 via-transparent to-white/20" />

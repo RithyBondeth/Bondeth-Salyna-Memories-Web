@@ -1,5 +1,5 @@
-import { MemoryBook } from "@/components/memory-book";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <MemoryBook />;
+  redirect("/cover");
 }
