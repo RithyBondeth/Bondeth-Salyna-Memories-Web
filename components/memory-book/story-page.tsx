@@ -1,3 +1,4 @@
+import { AnimatedText } from "./animated-text";
 import { cn } from "@/lib/utils";
 
 import { MemoryGallery } from "./memory-gallery";
@@ -29,12 +30,21 @@ export function StoryPage({
         </div>
 
         <div className="space-y-4">
-          <h2 className="max-w-2xl font-heading text-4xl leading-none tracking-tight text-rose-950 sm:text-5xl lg:text-[3.75rem]">
-            {page.title}
-          </h2>
-          <p className="max-w-2xl text-lg leading-8 text-rose-950/72">
-            {page.subtitle}
-          </p>
+          <AnimatedText
+            as="h2"
+            text={page.title}
+            className="max-w-2xl font-heading text-4xl leading-none tracking-tight text-rose-950 sm:text-5xl lg:text-[3.75rem]"
+            delay={0.08}
+            stagger={0.045}
+          />
+          <AnimatedText
+            as="p"
+            text={page.subtitle}
+            className="max-w-2xl text-lg leading-8 text-rose-950/72"
+            delay={0.2}
+            duration={0.72}
+            stagger={0.018}
+          />
         </div>
 
         <p className="max-w-2xl text-base leading-8 text-rose-950/78 sm:text-lg">

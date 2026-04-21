@@ -10,6 +10,7 @@ import {
   getRelationshipMetrics,
   RELATIONSHIP_START,
 } from "@/components/memory-book/dates";
+import { AnimatedText } from "@/components/memory-book/animated-text";
 import { FloatingHearts } from "@/components/memory-book/floating-hearts";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -76,18 +77,31 @@ export function MemoryBookShell({
         <section className="flex flex-col gap-4 pt-4 text-balance lg:max-w-3xl lg:pt-10">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/60 bg-white/65 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-rose-700 shadow-[0_10px_30px_rgba(190,24,93,0.08)] backdrop-blur-md">
             <Heart className="size-3.5 fill-current" />
-            Bondeth & Salyna
+            <AnimatedText
+              as="span"
+              text="Bondeth & Salyna"
+              split="char"
+              delay={0.1}
+              stagger={0.02}
+            />
           </div>
 
-          <h1 className="max-w-4xl font-heading text-5xl leading-none tracking-tight text-rose-950 sm:text-6xl lg:text-7xl">
-            A modern love book for your long-distance story.
-          </h1>
+          <AnimatedText
+            as="h1"
+            text="A modern love book for your long-distance story."
+            className="max-w-4xl font-heading text-5xl leading-none tracking-tight text-rose-950 sm:text-6xl lg:text-7xl"
+            delay={0.16}
+            stagger={0.05}
+          />
 
-          <p className="max-w-2xl text-base leading-7 text-rose-950/75 sm:text-lg">
-            This keepsake is designed like a digital scrapbook in motion: soft pink
-            light, floating hearts, and pages you can flip through whenever you miss
-            each other.
-          </p>
+          <AnimatedText
+            as="p"
+            text="This keepsake is designed like a digital scrapbook in motion: soft pink light, floating hearts, and pages you can flip through whenever you miss each other."
+            className="max-w-2xl text-base leading-7 text-rose-950/75 sm:text-lg"
+            delay={0.34}
+            duration={0.72}
+            stagger={0.018}
+          />
         </section>
 
         <section className="grid flex-1 gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
