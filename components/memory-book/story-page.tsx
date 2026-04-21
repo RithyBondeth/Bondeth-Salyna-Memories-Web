@@ -73,11 +73,6 @@ export function StoryPage({
             </span>
           ))}
         </div>
-
-        <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-white/52 px-5 py-4 text-sm leading-6 text-rose-950/70">
-          Every frame in this chapter is waiting for the real photos of your story,
-          so this page can slowly become more and more yours.
-        </div>
       </div>
 
       <div className="flex flex-col gap-4">

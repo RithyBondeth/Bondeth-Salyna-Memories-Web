@@ -8,11 +8,11 @@ export function createGalleryPage(): BookPage {
     label: "Archive",
     eyebrow: "Final Chapter",
     title: "Our Gallery Archive",
-    subtitle: "The place where our real photos can keep every smile, visit, date, and goodbye safe.",
+    subtitle:
+      "The place where you can upload, organize, and keep every smile, visit, date, and goodbye safe.",
     intro:
-      "Our story deserves a beautiful place for its real images. When you replace these placeholders with our photos, I want this chapter to feel like opening a private museum of us.",
-    quote:
-      "Every picture of us is proof that love happened here.",
+      "Our story deserves a beautiful home for its real images, so this chapter now works like a living archive where you can add photos, write what they mean, and keep them arranged by the memories they belong to.",
+    quote: "Every picture of us is proof that love happened here.",
     chips: ["January 2026", "Calls across countries", "Future memories waiting"],
     photos: [],
     galleryCategories: createGalleryCategories(),
@@ -20,7 +20,7 @@ export function createGalleryPage(): BookPage {
       {
         icon: ImageIcon,
         title: "A place for what mattered",
-        body: "I want the real photos of our relationship to live somewhere that feels intentional, not forgotten in a random folder.",
+        body: "I want the real photos of our relationship to live somewhere that feels intentional, where each one can be uploaded and remembered with care.",
       },
       {
         icon: Heart,
@@ -30,7 +30,7 @@ export function createGalleryPage(): BookPage {
       {
         icon: Sparkles,
         title: "A place for what is still coming",
-        body: "This archive is not only for what we already lived. It is also waiting for the photos we have not taken yet.",
+        body: "This archive is not only for what we already lived. It is also ready for the photos we will keep adding as our story grows.",
       },
     ],
     note:

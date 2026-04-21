@@ -1,6 +1,8 @@
+"use client";
+
 import { AnimatedText } from "./animated-text";
 import { cn } from "@/lib/utils";
-import { CategorizedGallery } from "./categorized-gallery";
+import { GalleryManager } from "./gallery-manager";
 import type { BookPage } from "./types";
 
 export function GalleryArchivePage({ page }: { page: BookPage }) {
@@ -49,9 +51,7 @@ export function GalleryArchivePage({ page }: { page: BookPage }) {
         </aside>
       </section>
 
-      {page.galleryCategories ? (
-        <CategorizedGallery categories={page.galleryCategories} />
-      ) : null}
+      {page.galleryCategories ? <GalleryManager categories={page.galleryCategories} /> : null}
     </div>
   );
 }

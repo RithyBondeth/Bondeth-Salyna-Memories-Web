@@ -7,10 +7,16 @@ export type BookCard = {
 };
 
 export type MemoryPhoto = {
+  id?: string;
   src: string;
   alt: string;
   caption: string;
   hint: string;
+  source?: "placeholder" | "upload";
+  categoryFolder?: string;
+  fileName?: string;
+  createdAt?: string;
+  updatedAt?: string;
   cardClassName?: string;
   frameClassName?: string;
   imageClassName?: string;

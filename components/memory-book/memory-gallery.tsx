@@ -1,5 +1,3 @@
-import { ImageIcon } from "lucide-react";
-
 import { MemoryPhotoCard } from "./memory-photo-card";
 import type { MemoryPhoto } from "./types";
 
@@ -12,13 +10,8 @@ export function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
             Photo Gallery
           </p>
           <h3 className="mt-1 font-heading text-3xl text-rose-950">
-            Memory Placeholders
+            Captured Moments
           </h3>
-        </div>
-
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-rose-600">
-          <ImageIcon className="size-3.5" />
-          /public/memories
         </div>
       </div>
 
@@ -26,11 +19,6 @@ export function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
         {photos.map((photo) => (
           <MemoryPhotoCard key={photo.src} photo={photo} />
         ))}
-      </div>
-
-      <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-rose-50/55 px-4 py-3 text-sm leading-6 text-rose-950/70">
-        Replace any placeholder later by keeping the same filename inside{" "}
-        <span className="font-semibold text-rose-700">/public/memories</span>.
       </div>
     </section>
   );
