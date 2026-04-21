@@ -1,6 +1,5 @@
-import { BookOpen, Heart, Sparkles } from "lucide-react";
+import { BookOpen, Heart } from "lucide-react";
 
-import { formatDate, RELATIONSHIP_START } from "@/components/memory-book/dates";
 import type { BookPage } from "@/components/memory-book/types";
 
 export function createCoverPage(): BookPage {
@@ -9,58 +8,45 @@ export function createCoverPage(): BookPage {
     label: "Letter",
     eyebrow: "For Salyna, from Bondeth",
     title: "For The Girl I Will Always Choose",
-    subtitle: "A digital love book from Bondeth in Cambodia to Salyna in Australia.",
+    subtitle: "Written at night in Cambodia, meant to be opened slowly in Australia.",
     intro:
-      "I know I am a software engineer and I usually build with logic, but loving you makes me want to build softer things too. This little book is my way of gathering what I feel for you into one place, so whenever you open it, you can see how deeply you are loved.",
+      "Salyna, I know I spend my days writing code, but none of it has ever felt as real as writing this. Messages scroll away and calls eventually end — I wanted you to have somewhere permanent to find me. Open this whenever you need to be reminded: I meant every line.",
     quote:
-      "No distance, no airport, and no clock has ever changed the fact that my heart is yours.",
-    chips: [
-      "Cambodia to Australia",
-      `Started dating: ${formatDate(RELATIONSHIP_START)}`,
-      "Made with all my love",
-    ],
+      "No flight, no time zone, no silence has ever loosened my grip on you.",
     photos: [
       {
         src: "/memories/cover-01.svg",
-        alt: "Cover placeholder one for Bondeth and Salyna's digital memory book",
-        caption: "Opening Cover",
-        hint: "Swap this for a favorite couple photo to make the first page instantly personal.",
+        alt: "Cover placeholder for Bondeth and Salyna's digital memory book",
+        caption: "Us",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
         src: "/memories/cover-02.svg",
-        alt: "Cover placeholder two for Bondeth and Salyna's digital memory book",
-        caption: "Soft Portrait",
-        hint: "A warm smiling picture would fit beautifully here.",
+        alt: "Cover portrait placeholder",
+        caption: "Your smile",
         frameClassName: "aspect-[4/5]",
       },
       {
         src: "/memories/cover-03.svg",
-        alt: "Cover placeholder three for Bondeth and Salyna's digital memory book",
-        caption: "Favorite Snapshot",
-        hint: "Use a candid memory or screenshot from a call that means a lot to both of you.",
+        alt: "Cover candid placeholder",
+        caption: "A quiet moment",
         frameClassName: "aspect-[4/5]",
       },
     ],
     cards: [
       {
         icon: Heart,
-        title: "Why I made this",
-        body: "I wanted more than messages and screenshots. I wanted you to have one place that feels like my heart speaking directly to yours.",
-      },
-      {
-        icon: Sparkles,
-        title: "What you mean to me",
-        body: "You are not a small part of my life. You are someone I miss, admire, protect in prayer, and imagine in my future every single day.",
+        title: "Why this book exists",
+        body: "Because I do not want loving you to live only in chats that disappear up the screen. I wanted you to have one place where my voice stays still, where you can come back and feel how serious I am about you.",
       },
       {
         icon: BookOpen,
-        title: "What this book holds",
-        body: "It holds our first date, your visit to Cambodia in January 2026, the ache of February 2026, and the promise I want to keep in 2027.",
+        title: "What you'll find inside",
+        body: "Our first day — September 1, 2025. The month you came to Cambodia in January 2026. The morning you flew back in February. The things I notice about you, and the year I am already walking toward: 2027.",
       },
     ],
     note:
-      "Salyna, I wanted this to feel like more than a website. I wanted it to feel like me sitting beside you, reminding you that you are loved, missed, admired, and chosen every single day.",
+      "If you're reading this, you've just opened something I have been carrying in my chest for a long time. Take your time with it. I'm right here.",
   };
 }

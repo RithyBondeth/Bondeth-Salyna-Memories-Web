@@ -4,21 +4,14 @@ import { startTransition, useEffect, useEffectEvent } from "react";
 import { ArrowLeft, ArrowRight, Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import {
-  FIRST_ANNIVERSARY,
-  formatDate,
-  getRelationshipMetrics,
-  RELATIONSHIP_START,
-} from "@/components/memory-book/dates";
 import { AnimatedText } from "@/components/memory-book/animated-text";
 import { FloatingHearts } from "@/components/memory-book/floating-hearts";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import { BOOK_ROUTES, TOTAL_PHOTO_SLOTS } from "../constants";
+import { BOOK_ROUTES } from "../constants";
 import type { BookRouteState } from "../utils";
 
-const relationshipMetrics = getRelationshipMetrics();
 type ViewTransitionDocument = Document & {
   startViewTransition?: (callback: () => void) => void;
 };
@@ -31,7 +24,6 @@ export function MemoryBookShell({
   currentPageState: BookRouteState;
 }>) {
   const router = useRouter();
-  const { daysTogether } = relationshipMetrics;
 
   const goToHref = (href: string) => {
     const navigate = () => {
@@ -93,28 +85,10 @@ export function MemoryBookShell({
             delay={0.16}
             stagger={0.05}
           />
-
-          <AnimatedText
-            as="p"
-            text="From Bondeth in Cambodia to Salyna in Australia, this little book keeps our first date on September 1, 2025, your January 2026 visit, the February 2026 goodbye, and the future I am preparing for us in 2027."
-            className="max-w-2xl text-base leading-7 text-rose-950/75 sm:text-lg"
-            delay={0.34}
-            duration={0.72}
-            stagger={0.018}
-          />
         </section>
 
         <section className="grid flex-1 gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
           <aside className="flex flex-col gap-4 rounded-[2rem] border border-white/55 bg-white/45 p-4 shadow-[0_24px_80px_rgba(190,24,93,0.1)] backdrop-blur-xl lg:p-5">
-            <div className="rounded-[1.5rem] bg-white/70 p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-rose-500">
-                Page Index
-              </p>
-              <p className="mt-2 text-sm leading-6 text-rose-950/70">
-                Tap a chapter or use the left and right arrow keys to turn the pages.
-              </p>
-            </div>
-
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
               {BOOK_ROUTES.map((entry, index) => {
                 const isActive = entry.id === currentPageState.route.id;
@@ -143,24 +117,6 @@ export function MemoryBookShell({
                   </button>
                 );
               })}
-            </div>
-
-            <div className="grid gap-3 rounded-[1.5rem] bg-rose-950 p-4 text-rose-50 shadow-[0_18px_48px_rgba(76,5,25,0.25)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose-200">
-                Love Notes
-              </p>
-              <div className="grid gap-3 text-sm leading-6 text-rose-100/88">
-                <p>{daysTogether} days of choosing each other.</p>
-                <p>
-                  Your story began on {formatDate(RELATIONSHIP_START)}, your first
-                  anniversary will be on {formatDate(FIRST_ANNIVERSARY)}, and your next
-                  big promise is Australia in 2027.
-                </p>
-                <p>
-                  {TOTAL_PHOTO_SLOTS} photo spaces are ready to hold January 2026,
-                  February 2026, and every chapter that still waits for you both.
-                </p>
-              </div>
             </div>
           </aside>
 

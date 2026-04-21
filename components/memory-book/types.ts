@@ -11,7 +11,7 @@ export type MemoryPhoto = {
   src: string;
   alt: string;
   caption: string;
-  hint: string;
+  hint?: string;
   source?: "placeholder" | "upload";
   categoryFolder?: string;
   fileName?: string;
@@ -29,6 +29,8 @@ export type GalleryCategory = {
   photos: MemoryPhoto[];
 };
 
+export type BookPageVariant = "story" | "gallery" | "letter";
+
 export type BookPage = {
   id: string;
   label: string;
@@ -37,11 +39,20 @@ export type BookPage = {
   subtitle: string;
   intro: string;
   quote: string;
-  chips: string[];
   photos: MemoryPhoto[];
   galleryCategories?: GalleryCategory[];
   cards: BookCard[];
   note: string;
+  variant?: BookPageVariant;
+  letter?: LetterContent;
+};
+
+export type LetterContent = {
+  opener: string;
+  paragraphs: string[];
+  signOff: string;
+  signature: string;
+  dateLine: string;
 };
 
 export type PageTheme = {

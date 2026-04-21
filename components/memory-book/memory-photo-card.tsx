@@ -4,7 +4,14 @@ import { cn } from "@/lib/utils";
 
 import type { MemoryPhoto } from "./types";
 
+function isPlaceholderPhoto(photo: MemoryPhoto) {
+  if (photo.source === "upload") return false;
+  return photo.src.startsWith("/memories/") && photo.src.endsWith(".svg");
+}
+
 export function MemoryPhotoCard({ photo }: { photo: MemoryPhoto }) {
+  const showPlaceholderBadge = isPlaceholderPhoto(photo);
+
   return (
     <figure
       className={cn(
@@ -29,16 +36,17 @@ export function MemoryPhotoCard({ photo }: { photo: MemoryPhoto }) {
           )}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-rose-950/55 via-transparent to-white/20" />
-        <span className="absolute left-3 top-3 rounded-full bg-white/82 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-rose-600 shadow-sm">
-          Placeholder
-        </span>
+        {showPlaceholderBadge ? (
+          <span className="absolute left-3 top-3 rounded-full bg-white/82 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-rose-600 shadow-sm">
+            Placeholder
+          </span>
+        ) : null}
       </div>
 
-      <figcaption className="mt-3 grid gap-1 px-1">
+      <figcaption className="mt-3 px-1">
         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-rose-500">
           {photo.caption}
         </p>
-        <p className="text-sm leading-6 text-rose-950/68">{photo.hint}</p>
       </figcaption>
     </figure>
   );

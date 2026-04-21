@@ -158,7 +158,7 @@ export function GalleryManager({ categories }: GalleryManagerProps) {
     setComposerState({
       categoryFolder: photo.categoryFolder,
       caption: photo.caption,
-      hint: photo.hint,
+      hint: photo.hint ?? "",
       alt: photo.alt,
     });
     setStatus(null);

@@ -8,6 +8,7 @@ import { createDistancePage } from "../sections/distance/constants";
 import { createDreamsPage } from "../sections/dreams/constants";
 import { createFuturePage } from "../sections/future/constants";
 import { createGalleryPage } from "../sections/gallery/constants";
+import { createLetterPage } from "../sections/letter/constants";
 
 export type BookRouteEntry = {
   id: BookPage["id"];
@@ -53,15 +54,9 @@ export const BOOK_ROUTES: BookRouteEntry[] = [
     href: "/gallery",
     page: createGalleryPage(),
   },
+  {
+    id: "letter",
+    href: "/letter",
+    page: createLetterPage(),
+  },
 ];
-
-export const TOTAL_PHOTO_SLOTS = BOOK_ROUTES.reduce((total, route) => {
-  const storyPhotos = route.page.photos.length;
-  const categorizedPhotos =
-    route.page.galleryCategories?.reduce(
-      (sum, category) => sum + category.photos.length,
-      0
-    ) ?? 0;
-
-  return total + storyPhotos + categorizedPhotos;
-}, 0);

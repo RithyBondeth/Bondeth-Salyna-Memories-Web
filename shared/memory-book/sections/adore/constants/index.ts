@@ -1,4 +1,4 @@
-import { GraduationCap, Heart, Sparkles } from "lucide-react";
+import { BookOpen, Heart } from "lucide-react";
 
 import type { BookPage } from "@/components/memory-book/types";
 
@@ -7,49 +7,41 @@ export function createAdorePage(): BookPage {
     id: "adore",
     label: "Adoration",
     eyebrow: "Chapter Four",
-    title: "What I Deeply Admire About You",
-    subtitle: "I love your beauty, but I also love your mind, your discipline, and the way you shine.",
+    title: "Things I Notice About You",
+    subtitle: "Written down so you know I see them \u2014 not just once, but always.",
     intro:
-      "Salyna, one of the reasons I love you so much is because you are not only sweet, you are remarkable. You are smart. You are an outstanding student. You work hard for your future. You carry ambition and grace together, and every time I think about the woman you are becoming, I feel proud that I get to love you.",
+      "Loving you started with the way you look, but it settled somewhere much deeper. I love how your mind moves. I love the weight your doctorate puts on your shoulders and the grace you carry it with. You are an outstanding student and the softest person I have ever known at the same time, and somehow both of those things made me more sure.",
     quote:
-      "You are beautiful to me because your heart and your mind both shine.",
-    chips: ["Smart", "Outstanding student", "Soft and strong", "My favorite person"],
+      "You are beautiful because your mind and your heart refuse to separate.",
     photos: [
       {
         src: "/memories/adore-01.svg",
-        alt: "Adoration placeholder one for Bondeth and Salyna",
-        caption: "What I See",
-        hint: "This is a good place for one of your most beautiful portraits of Salyna.",
+        alt: "Adoration placeholder \u2014 a portrait",
+        caption: "The way you look",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
         src: "/memories/adore-02.svg",
-        alt: "Adoration placeholder two for Bondeth and Salyna",
-        caption: "What I Treasure",
-        hint: "Use another image that feels graceful, bright, and deeply personal.",
+        alt: "Adoration placeholder \u2014 a studying moment",
+        caption: "The way you work",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
     ],
     cards: [
       {
-        icon: GraduationCap,
+        icon: BookOpen,
         title: "Your mind",
-        body: "You are intelligent in a way that makes me admire you even more. I love listening to your thoughts because there is depth, focus, and brightness in you.",
+        body: "When you talk about your studies, your whole face changes. I could listen to you explain something forever. You are one of the sharpest people I know, and I get to love you, which still feels unfair to everyone else.",
       },
       {
         icon: Heart,
-        title: "Your heart",
-        body: "No matter how talented and capable you are, you still keep a softness that feels gentle, warm, and deeply human. That softness is one of the reasons I feel safe loving you.",
-      },
-      {
-        icon: Sparkles,
-        title: "Your discipline",
-        body: "You are building something serious with your studies, and I respect that so much. Your effort makes me proud because I know how much you want to become something great.",
+        title: "Your softness",
+        body: "For someone this driven, you are somehow still the gentlest person in every room you walk into. You carry kindness like it does not cost you anything. Being loved by you has made me kinder, too.",
       },
     ],
     note:
-      "The more I know you, the more I respect you. And the more I respect you, the more deeply I fall in love with you.",
+      "The more I know you, the more I respect you. The more I respect you, the harder I love you. It only keeps going in one direction.",
   };
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatedText } from "./animated-text";
-import { cn } from "@/lib/utils";
 import { GalleryManager } from "./gallery-manager";
 import type { BookPage } from "./types";
 
@@ -25,19 +24,6 @@ export function GalleryArchivePage({ page }: { page: BookPage }) {
           <p className="max-w-3xl text-base leading-8 text-rose-950/78 sm:text-lg">
             {page.intro}
           </p>
-
-          <div className="flex flex-wrap gap-3">
-            {page.chips.map((chip) => (
-              <span
-                key={chip}
-                className={cn(
-                  "rounded-full bg-white/72 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-rose-700 shadow-[0_10px_25px_rgba(190,24,93,0.06)]",
-                )}
-              >
-                {chip}
-              </span>
-            ))}
-          </div>
         </div>
 
         <aside className="rounded-[1.9rem] border border-white/72 bg-white/62 p-5 shadow-[0_20px_44px_rgba(190,24,93,0.08)]">

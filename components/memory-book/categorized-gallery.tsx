@@ -58,14 +58,16 @@ export function CategorizedGallery({
 
                   <div className="absolute inset-0 bg-gradient-to-t from-rose-950/24 via-transparent to-white/10 transition-all duration-300 group-hover:from-rose-950/82 group-hover:via-rose-950/34 group-hover:to-rose-950/10" />
 
-                  <div className="absolute inset-x-0 bottom-0 translate-y-5 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <div className="rounded-[1.3rem] bg-black/24 p-4 backdrop-blur-md">
-                      <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-rose-100">
-                        Description
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-white/92">{photo.hint}</p>
+                  {photo.source === "upload" && photo.hint ? (
+                    <div className="absolute inset-x-0 bottom-0 translate-y-5 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      <div className="rounded-[1.3rem] bg-black/24 p-4 backdrop-blur-md">
+                        <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-rose-100">
+                          Description
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-white/92">{photo.hint}</p>
+                      </div>
                     </div>
-                  </div>
+                  ) : null}
 
                   {photo.source === "upload" ? (
                     <div className="absolute right-3 top-3 flex gap-2">

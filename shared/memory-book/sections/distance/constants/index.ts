@@ -1,4 +1,4 @@
-import { Heart, Sparkles, Star } from "lucide-react";
+import { Moon, Phone } from "lucide-react";
 
 import type { BookPage } from "@/components/memory-book/types";
 
@@ -7,49 +7,42 @@ export function createDistancePage(): BookPage {
     id: "distance",
     label: "After Goodbye",
     eyebrow: "Chapter Two",
-    title: "After February 2026",
-    subtitle: "When you went back to Australia in February 2026, the distance returned, but so did my certainty.",
+    title: "The Morning You Flew Back",
+    subtitle:
+      "February 2026 \u2014 the airport took you back, and my life quietly reshaped itself around missing you.",
     intro:
-      "The goodbye hurt because being with you had already started to feel natural to me. But even after you flew back to Australia in February 2026, my love did not become smaller. It became clearer. Missing you only showed me how serious my heart is about you.",
+      "I had known the goodbye was coming for weeks, and I still was not ready for the shape of the room after you left it. By the next night you were in Australia again, and the apartment felt like a song with its loudest note suddenly missing. Distance did not make me love you less. It made me feel exactly how much I love you \u2014 which is everything.",
     quote:
-      "Loving you from far away is hard, but not loving you would be impossible.",
-    chips: ["February 2026", "Calls and messages", "Still choosing us"],
+      "Loving you across an ocean is heavy. Not loving you would be impossible.",
     photos: [
       {
         src: "/memories/distance-01.svg",
-        alt: "Distance placeholder one for Bondeth and Salyna",
-        caption: "Call Night",
-        hint: "A screenshot from a video call or chat moment would make this chapter feel alive.",
+        alt: "Distance placeholder \u2014 a late call",
+        caption: "Late calls",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/9]",
       },
       {
         src: "/memories/distance-02.svg",
-        alt: "Distance placeholder two for Bondeth and Salyna",
-        caption: "Quiet Proof",
-        hint: "Use a simple photo that reminds you how the little things hold the relationship together.",
+        alt: "Distance placeholder \u2014 the quiet after",
+        caption: "The quiet after",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/9]",
       },
     ],
     cards: [
       {
-        icon: Sparkles,
-        title: "The ache",
-        body: "I will never pretend that distance is easy. There are days when missing you sits heavily in my chest because I know how good it feels to have you near.",
+        icon: Moon,
+        title: "The quiet after",
+        body: "The hardest part was not missing you all at once. It was missing you in pieces. A joke I almost turned to tell you. A meal that felt smaller. An evening that suddenly had too many empty hours in it.",
       },
       {
-        icon: Heart,
-        title: "The routine",
-        body: "Calls, messages, little updates, and all the quiet ways we stay connected became the thread that kept my days tied to yours after you went back.",
-      },
-      {
-        icon: Star,
-        title: "The truth",
-        body: "Even when I miss you the most, I never question what you mean to me. My heart stays sure about you.",
+        icon: Phone,
+        title: "What almost replaces you",
+        body: "Your voice on late calls. Your small messages before you sleep. The photos I open when I need proof that you are real, that you are mine, and that these months apart are only the middle of the story \u2014 not the ending.",
       },
     ],
     note:
-      "Even on the nights I miss you the most, I never question us. I only wish I could hold you sooner.",
+      "On the hardest nights, I never wonder about us. I only wonder how soon I can hold you again.",
   };
 }

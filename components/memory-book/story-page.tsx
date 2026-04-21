@@ -6,28 +6,16 @@ import type { BookPage, PageTheme } from "./types";
 
 type StoryPageProps = {
   page: BookPage;
-  currentPage: number;
-  pagesLength: number;
   theme: PageTheme;
 };
 
-export function StoryPage({
-  page,
-  currentPage,
-  pagesLength,
-  theme,
-}: StoryPageProps) {
+export function StoryPage({ page, theme }: StoryPageProps) {
   return (
     <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
       <div className="flex flex-col gap-6">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-rose-950 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-50">
-            {page.eyebrow}
-          </span>
-          <span className="rounded-full border border-white/70 bg-white/66 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-600">
-            Page {currentPage + 1} of {pagesLength}
-          </span>
-        </div>
+        <span className="w-fit rounded-full bg-rose-950 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-50">
+          {page.eyebrow}
+        </span>
 
         <div className="space-y-4">
           <AnimatedText
@@ -59,20 +47,6 @@ export function StoryPage({
             {page.quote}”
           </p>
         </blockquote>
-
-        <div className="flex flex-wrap gap-3">
-          {page.chips.map((chip) => (
-            <span
-              key={chip}
-              className={cn(
-                "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em]",
-                theme.chip,
-              )}
-            >
-              {chip}
-            </span>
-          ))}
-        </div>
       </div>
 
       <div className="flex flex-col gap-4">

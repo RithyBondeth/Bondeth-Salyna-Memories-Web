@@ -9,32 +9,32 @@ export function createGalleryPage(): BookPage {
     eyebrow: "Final Chapter",
     title: "Our Gallery Archive",
     subtitle:
-      "The place where you can upload, organize, and keep every smile, visit, date, and goodbye safe.",
+      "A living home for every real photo of us \u2014 and every one we have not taken yet.",
     intro:
-      "Our story deserves a beautiful home for its real images, so this chapter now works like a living archive where you can add photos, write what they mean, and keep them arranged by the memories they belong to.",
-    quote: "Every picture of us is proof that love happened here.",
-    chips: ["January 2026", "Calls across countries", "Future memories waiting"],
+      "Every picture of us deserves somewhere to live. Upload the January days in Cambodia, the call screenshots that kept us tethered in February, the small gifts, the portraits of you I keep on my phone. Write what they mean next to them. This archive grows with us.",
+    quote: "Every picture of us is evidence that love happened here.",
     photos: [],
     galleryCategories: createGalleryCategories(),
+    variant: "gallery",
     cards: [
       {
         icon: ImageIcon,
         title: "A place for what mattered",
-        body: "I want the real photos of our relationship to live somewhere that feels intentional, where each one can be uploaded and remembered with care.",
+        body: "The real photos of our relationship should live somewhere intentional \u2014 not lost in a chat scroll, not buried in a camera roll, but here, where they can be seen again.",
       },
       {
         icon: Heart,
-        title: "A place for January and February 2026",
-        body: "The days you spent in Cambodia deserve their own home here, because they are some of the most precious memories I have of us.",
+        title: "A place for January",
+        body: "The days you spent in Cambodia deserve their own shelf. Drop the best ones here and they will stay the easiest part of the archive to find.",
       },
       {
         icon: Sparkles,
         title: "A place for what is still coming",
-        body: "This archive is not only for what we already lived. It is also ready for the photos we will keep adding as our story grows.",
+        body: "This archive is not only for what we already lived. It is waiting for the photos we will keep adding as our story grows past the distance.",
       },
     ],
     note:
-      "I want this archive to keep growing with us until the distance becomes only one small chapter in a much bigger love story.",
+      "I want this archive to outgrow the distance \u2014 until miles are the smallest thing about our story.",
   };
 }
 
@@ -43,35 +43,31 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Together In Cambodia",
       description:
-        "Photos from the time Salyna came to Cambodia and turned ordinary days into unforgettable memories.",
+        "Photos from the month you came to Cambodia and turned ordinary days into memories I still replay.",
       folder: "gallery/together",
       photos: [
         {
           src: "/memories/gallery/together-01.svg",
-          alt: "Together moments placeholder one for Bondeth and Salyna",
+          alt: "Together placeholder",
           caption: "Together 01",
-          hint: "Use this for one of your happiest photos together.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/together-02.svg",
-          alt: "Together moments placeholder two for Bondeth and Salyna",
+          alt: "Together placeholder",
           caption: "Together 02",
-          hint: "Another couple memory can live here as the archive grows.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/together-03.svg",
-          alt: "Together moments placeholder three for Bondeth and Salyna",
+          alt: "Together placeholder",
           caption: "Together 03",
-          hint: "Use this for another favorite selfie or a cozy candid moment.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/together-04.svg",
-          alt: "Together moments placeholder four for Bondeth and Salyna",
+          alt: "Together placeholder",
           caption: "Together 04",
-          hint: "A playful memory, date photo, or sweet pose would fit nicely here.",
           frameClassName: "aspect-[4/5]",
         },
       ],
@@ -79,35 +75,31 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Video Calls",
       description:
-        "Screenshots from calls, chats, and the little conversations that carried love across Cambodia and Australia.",
+        "Screenshots from calls and the small late-night conversations that carried love across Cambodia and Australia.",
       folder: "gallery/calls",
       photos: [
         {
           src: "/memories/gallery/calls-01.svg",
-          alt: "Video call placeholder one for Bondeth and Salyna",
+          alt: "Video call placeholder",
           caption: "Call 01",
-          hint: "Perfect for a screenshot from a late-night call.",
           frameClassName: "aspect-[16/10]",
         },
         {
           src: "/memories/gallery/calls-02.svg",
-          alt: "Video call placeholder two for Bondeth and Salyna",
+          alt: "Video call placeholder",
           caption: "Call 02",
-          hint: "Use this for another sweet moment from distance.",
           frameClassName: "aspect-[16/10]",
         },
         {
           src: "/memories/gallery/calls-03.svg",
-          alt: "Video call placeholder three for Bondeth and Salyna",
+          alt: "Video call placeholder",
           caption: "Call 03",
-          hint: "A screenshot from a laughter-filled call would be perfect here.",
           frameClassName: "aspect-[16/10]",
         },
         {
           src: "/memories/gallery/calls-04.svg",
-          alt: "Video call placeholder four for Bondeth and Salyna",
+          alt: "Video call placeholder",
           caption: "Call 04",
-          hint: "Save a late-night check-in or quiet video-call moment in this slot.",
           frameClassName: "aspect-[16/10]",
         },
       ],
@@ -115,35 +107,31 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Dates & Gifts",
       description:
-        "Anniversaries, flowers, notes, gifts, and the little gestures that made love feel tangible.",
+        "Anniversaries, flowers, notes, gifts, and the small gestures that made love feel tangible.",
       folder: "gallery/dates",
       photos: [
         {
           src: "/memories/gallery/dates-01.svg",
-          alt: "Dates and gifts placeholder one for Bondeth and Salyna",
+          alt: "Dates placeholder",
           caption: "Dates 01",
-          hint: "A gift photo, cake, flowers, or dating-day memory would fit well.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/dates-02.svg",
-          alt: "Dates and gifts placeholder two for Bondeth and Salyna",
+          alt: "Dates placeholder",
           caption: "Dates 02",
-          hint: "Another meaningful milestone can be saved here.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/dates-03.svg",
-          alt: "Dates and gifts placeholder three for Bondeth and Salyna",
+          alt: "Dates placeholder",
           caption: "Dates 03",
-          hint: "Use this for flowers, a surprise, or a memory from a celebration.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/dates-04.svg",
-          alt: "Dates and gifts placeholder four for Bondeth and Salyna",
+          alt: "Dates placeholder",
           caption: "Dates 04",
-          hint: "Another treasured gift or meaningful relationship date can live here.",
           frameClassName: "aspect-[4/5]",
         },
       ],
@@ -151,35 +139,31 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Salyna, My Smart Girl",
       description:
-        "A space for her portraits, study moments, and the photos that remind Bondeth how beautiful and brilliant she is.",
+        "A space for your portraits, study moments, and the photos that remind me how beautiful and brilliant you are.",
       folder: "gallery/salyna",
       photos: [
         {
           src: "/memories/gallery/salyna-01.svg",
-          alt: "Salyna placeholder one for the gallery archive",
+          alt: "Salyna placeholder",
           caption: "Salyna 01",
-          hint: "Use one of her most beautiful portraits here.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/salyna-02.svg",
-          alt: "Salyna placeholder two for the gallery archive",
+          alt: "Salyna placeholder",
           caption: "Salyna 02",
-          hint: "A candid or study photo would also look lovely here.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/salyna-03.svg",
-          alt: "Salyna placeholder three for the gallery archive",
+          alt: "Salyna placeholder",
           caption: "Salyna 03",
-          hint: "Another portrait, smile, or elegant moment can be kept here.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/salyna-04.svg",
-          alt: "Salyna placeholder four for the gallery archive",
+          alt: "Salyna placeholder",
           caption: "Salyna 04",
-          hint: "A photo that feels especially radiant or personal would fit here beautifully.",
           frameClassName: "aspect-[4/5]",
         },
       ],
@@ -187,35 +171,31 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Bondeth In Cambodia",
       description:
-        "Bondeth's side of the story: portraits, work-life snapshots, and the days spent waiting and working toward the future.",
+        "My side of the story: portraits, work-life snapshots, and the days spent waiting and working toward you.",
       folder: "gallery/bondeth",
       photos: [
         {
           src: "/memories/gallery/bondeth-01.svg",
-          alt: "Bondeth placeholder one for the gallery archive",
+          alt: "Bondeth placeholder",
           caption: "Bondeth 01",
-          hint: "A portrait or coding-life photo can go here.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/bondeth-02.svg",
-          alt: "Bondeth placeholder two for the gallery archive",
+          alt: "Bondeth placeholder",
           caption: "Bondeth 02",
-          hint: "Save another moment from your life in Cambodia here.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/bondeth-03.svg",
-          alt: "Bondeth placeholder three for the gallery archive",
+          alt: "Bondeth placeholder",
           caption: "Bondeth 03",
-          hint: "Another portrait, everyday moment, or work-life memory can go here.",
           frameClassName: "aspect-[4/5]",
         },
         {
           src: "/memories/gallery/bondeth-04.svg",
-          alt: "Bondeth placeholder four for the gallery archive",
+          alt: "Bondeth placeholder",
           caption: "Bondeth 04",
-          hint: "Use this for a casual photo that captures your side of the story.",
           frameClassName: "aspect-[4/5]",
         },
       ],
@@ -223,35 +203,31 @@ function createGalleryCategories(): GalleryCategory[] {
     {
       title: "Our Future In Australia",
       description:
-        "A category reserved for the memories still waiting for you: reunions, the 2027 move, future anniversaries, and the life after distance.",
+        "A category reserved for what is still waiting for us: reunions, the 2027 move, future anniversaries, and the life after distance.",
       folder: "gallery/future",
       photos: [
         {
           src: "/memories/gallery/future-01.svg",
-          alt: "Future us placeholder one for Bondeth and Salyna",
+          alt: "Future placeholder",
           caption: "Future 01",
-          hint: "A reunion or travel photo will be powerful here later.",
           frameClassName: "aspect-[16/10]",
         },
         {
           src: "/memories/gallery/future-02.svg",
-          alt: "Future us placeholder two for Bondeth and Salyna",
+          alt: "Future placeholder",
           caption: "Future 02",
-          hint: "Keep this ready for a future anniversary or new chapter.",
           frameClassName: "aspect-[16/10]",
         },
         {
           src: "/memories/gallery/future-03.svg",
-          alt: "Future us placeholder three for Bondeth and Salyna",
+          alt: "Future placeholder",
           caption: "Future 03",
-          hint: "A future trip, celebration, or reunion memory could be saved here.",
           frameClassName: "aspect-[16/10]",
         },
         {
           src: "/memories/gallery/future-04.svg",
-          alt: "Future us placeholder four for Bondeth and Salyna",
+          alt: "Future placeholder",
           caption: "Future 04",
-          hint: "Keep one more space open for a chapter you have not written yet.",
           frameClassName: "aspect-[16/10]",
         },
       ],
