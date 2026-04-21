@@ -170,7 +170,7 @@ export function MemoryBookShell({
               className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
               onClick={() => setIsMenuOpen(false)}
             />
-            <aside className="fixed right-0 top-0 z-50 flex h-full w-72 flex-col gap-4 rounded-l-[2rem] border-l border-white/55 bg-white/95 p-4 shadow-[-20px_0_60px_rgba(190,24,93,0.15)] backdrop-blur-xl lg:hidden">
+            <aside className="fixed right-0 top-0 z-50 flex h-full w-72 flex-col gap-4 overflow-y-auto rounded-l-[2rem] border-l border-white/55 bg-white/95 p-4 shadow-[-20px_0_60px_rgba(190,24,93,0.15)] backdrop-blur-xl lg:hidden">
               <div className="flex items-center justify-between">
                 <p className="font-heading text-xl text-rose-950">Pages</p>
                 <button
