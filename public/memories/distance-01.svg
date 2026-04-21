@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="88" y1="66" x2="1494" y2="1128" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C084FC"/>
+      <stop offset="0.5" stop-color="#F9A8D4"/>
+      <stop offset="1" stop-color="#FBCFE8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="52" fill="url(#g)"/>
+  <rect x="74" y="74" width="1452" height="1052" rx="34" fill="#FFF7FB" fill-opacity=".68" stroke="#fff" stroke-opacity=".84" stroke-width="8"/>
+  <rect x="136" y="150" width="1328" height="700" rx="28" fill="#fff" fill-opacity=".72"/>
+  <text x="136" y="944" fill="#831843" font-family="Arial, sans-serif" font-size="60" font-weight="700">Call Night Placeholder</text>
+  <text x="136" y="1018" fill="#9D174D" font-family="Arial, sans-serif" font-size="38">distance-01.svg</text>
+  <text x="136" y="1078" fill="#9F1239" font-family="Arial, sans-serif" font-size="30">Ideal for a screenshot from a video call or sweet chat moment.</text>
+</svg>

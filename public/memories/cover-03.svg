@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="120" y1="90" x2="1450" y2="1120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A8D4"/>
+      <stop offset="0.5" stop-color="#FDBA74"/>
+      <stop offset="1" stop-color="#FDE68A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="52" fill="url(#g)"/>
+  <rect x="78" y="78" width="1444" height="1044" rx="34" fill="#FFFDFE" fill-opacity=".68" stroke="#fff" stroke-opacity=".86" stroke-width="8"/>
+  <rect x="860" y="158" width="562" height="822" rx="34" fill="#fff" fill-opacity=".74"/>
+  <text x="156" y="808" fill="#881337" font-family="Arial, sans-serif" font-size="60" font-weight="700">Favorite Snapshot</text>
+  <text x="156" y="880" fill="#9D174D" font-family="Arial, sans-serif" font-size="36">cover-03.svg</text>
+  <text x="156" y="940" fill="#9F1239" font-family="Arial, sans-serif" font-size="30">Use a candid moment, selfie, or screenshot from a happy day.</text>
+</svg>

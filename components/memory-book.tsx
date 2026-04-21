@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { startTransition, useEffect, useEffectEvent, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -10,6 +11,7 @@ import {
   Code2,
   GraduationCap,
   Heart,
+  ImageIcon,
   MapPin,
   Plane,
   Sparkles,
@@ -25,6 +27,16 @@ type BookCard = {
   body: string;
 };
 
+type MemoryPhoto = {
+  src: string;
+  alt: string;
+  caption: string;
+  hint: string;
+  cardClassName?: string;
+  frameClassName?: string;
+  imageClassName?: string;
+};
+
 type BookPage = {
   id: string;
   label: string;
@@ -34,6 +46,7 @@ type BookPage = {
   intro: string;
   quote: string;
   chips: string[];
+  photos: MemoryPhoto[];
   cards: BookCard[];
   note: string;
 };
@@ -95,8 +108,8 @@ const PAGE_THEMES = [
   },
 ];
 
-const RELATIONSHIP_START = createDate(2024, 9, 1);
-const FIRST_ANNIVERSARY = createDate(2025, 9, 1);
+const RELATIONSHIP_START = createDate(2025, 9, 1);
+const FIRST_ANNIVERSARY = createDate(2026, 9, 1);
 const BONDETH_BIRTHDAY = createDate(2002, 5, 7);
 const SALYNA_BIRTHDAY = createDate(2006, 6, 14);
 const REFERENCE_TODAY = createDate(2026, 4, 21);
@@ -177,6 +190,75 @@ function FloatingHearts() {
   );
 }
 
+function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
+  return (
+    <section className="grid gap-4 rounded-[2rem] border border-white/68 bg-white/54 p-4 shadow-[0_20px_48px_rgba(190,24,93,0.08)] backdrop-blur-md sm:p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose-500">
+            Photo Gallery
+          </p>
+          <h3 className="mt-1 font-heading text-3xl text-rose-950">
+            Memory Placeholders
+          </h3>
+        </div>
+
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-rose-600">
+          <ImageIcon className="size-3.5" />
+          /public/memories
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        {photos.map((photo) => (
+          <figure
+            key={photo.src}
+            className={cn(
+              "group rounded-[1.8rem] border border-white/72 bg-white/74 p-3 shadow-[0_18px_42px_rgba(190,24,93,0.08)]",
+              photo.cardClassName
+            )}
+          >
+            <div
+              className={cn(
+                "relative overflow-hidden rounded-[1.35rem] border border-rose-100 bg-rose-50",
+                photo.frameClassName ?? "aspect-[4/5]"
+              )}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 32vw"
+                className={cn(
+                  "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
+                  photo.imageClassName
+                )}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-rose-950/55 via-transparent to-white/20" />
+              <span className="absolute left-3 top-3 rounded-full bg-white/82 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-rose-600 shadow-sm">
+                Placeholder
+              </span>
+            </div>
+
+            <figcaption className="mt-3 grid gap-1 px-1">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-rose-500">
+                {photo.caption}
+              </p>
+              <p className="text-sm leading-6 text-rose-950/68">{photo.hint}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-rose-50/55 px-4 py-3 text-sm leading-6 text-rose-950/70">
+        Replace any placeholder later by keeping the same filename inside
+        {" "}
+        <span className="font-semibold text-rose-700">/public/memories</span>.
+      </div>
+    </section>
+  );
+}
+
 export function MemoryBook() {
   const [currentPage, setCurrentPage] = useState(0);
   const today = REFERENCE_TODAY;
@@ -199,8 +281,32 @@ export function MemoryBook() {
         "Distance can stretch the map, but it still cannot measure what I feel for you.",
       chips: [
         "Cambodia to Australia",
-        `First anniversary: ${formatDate(FIRST_ANNIVERSARY)}`,
+        `Started dating: ${formatDate(RELATIONSHIP_START)}`,
         "Version one of many",
+      ],
+      photos: [
+        {
+          src: "/memories/cover-01.svg",
+          alt: "Cover placeholder one for Bondeth and Salyna's digital memory book",
+          caption: "Opening Cover",
+          hint: "Swap this for a favorite couple photo to make the first page instantly personal.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/10]",
+        },
+        {
+          src: "/memories/cover-02.svg",
+          alt: "Cover placeholder two for Bondeth and Salyna's digital memory book",
+          caption: "Soft Portrait",
+          hint: "A warm smiling picture would fit beautifully here.",
+          frameClassName: "aspect-[4/5]",
+        },
+        {
+          src: "/memories/cover-03.svg",
+          alt: "Cover placeholder three for Bondeth and Salyna's digital memory book",
+          caption: "Favorite Snapshot",
+          hint: "Use a candid memory or screenshot from a call that means a lot to both of you.",
+          frameClassName: "aspect-[4/5]",
+        },
       ],
       cards: [
         {
@@ -233,6 +339,30 @@ export function MemoryBook() {
       quote:
         "I admire how gently you carry a dream that big, and how beautifully you still make room for us.",
       chips: ["Software engineer", "Doctorate journey", "Ambition with tenderness"],
+      photos: [
+        {
+          src: "/memories/journey-01.svg",
+          alt: "Journey placeholder one for Bondeth and Salyna",
+          caption: "Your World",
+          hint: "A campus, study, or achievement photo would be lovely here.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/10]",
+        },
+        {
+          src: "/memories/journey-02.svg",
+          alt: "Journey placeholder two for Bondeth and Salyna",
+          caption: "My World",
+          hint: "A work desk, coding setup, or portrait from Cambodia would fit this spot well.",
+          frameClassName: "aspect-[4/5]",
+        },
+        {
+          src: "/memories/journey-03.svg",
+          alt: "Journey placeholder three for Bondeth and Salyna",
+          caption: "Shared Motivation",
+          hint: "Use a photo that feels like both of your dreams are moving together.",
+          frameClassName: "aspect-[4/5]",
+        },
+      ],
       cards: [
         {
           icon: Code2,
@@ -264,6 +394,24 @@ export function MemoryBook() {
       quote:
         "Love becomes very honest when it learns how to wait without growing cold.",
       chips: ["Late-night calls", "Patience", "Steadiness"],
+      photos: [
+        {
+          src: "/memories/distance-01.svg",
+          alt: "Distance placeholder one for Bondeth and Salyna",
+          caption: "Call Night",
+          hint: "A screenshot from a video call or chat moment would make this chapter feel alive.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/9]",
+        },
+        {
+          src: "/memories/distance-02.svg",
+          alt: "Distance placeholder two for Bondeth and Salyna",
+          caption: "Quiet Proof",
+          hint: "Use a simple photo that reminds you how the little things hold the relationship together.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/9]",
+        },
+      ],
       cards: [
         {
           icon: Sparkles,
@@ -295,6 +443,24 @@ export function MemoryBook() {
       quote:
         "Even time feels softer when I measure it with your name beside mine.",
       chips: [`${daysTogether} days of us`, `${monthsTogether} months together`, "A timeline worth keeping"],
+      photos: [
+        {
+          src: "/memories/timeline-01.svg",
+          alt: "Timeline placeholder one for Bondeth and Salyna",
+          caption: "Important Day",
+          hint: "Place a special photo from around the day you started dating or another meaningful memory here.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/10]",
+        },
+        {
+          src: "/memories/timeline-02.svg",
+          alt: "Timeline placeholder two for Bondeth and Salyna",
+          caption: "Memory Marker",
+          hint: "A celebratory image, gift, or handwritten note photo would look great in this panel.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/10]",
+        },
+      ],
       cards: [
         {
           icon: CalendarDays,
@@ -309,11 +475,11 @@ export function MemoryBook() {
         {
           icon: Heart,
           title: "Our first anniversary",
-          body: `We celebrated one year of us on ${formatDate(FIRST_ANNIVERSARY)}, which means this beautiful chapter began on ${formatDate(RELATIONSHIP_START)}.`,
+          body: `We started dating on ${formatDate(RELATIONSHIP_START)}, which means our first anniversary will be on ${formatDate(FIRST_ANNIVERSARY)}.`,
         },
       ],
       note:
-        "I treated your first anniversary date as the clue for the beginning of our story, because some dates deserve to be held carefully.",
+        "This timeline now follows your real starting date, because the beginning of your story deserves to be told correctly.",
     },
     {
       id: "adore",
@@ -326,6 +492,24 @@ export function MemoryBook() {
       quote:
         "You are the kind of person who makes admiration feel as natural as breathing.",
       chips: ["Brilliant", "Tender", "Disciplined", "Radiant"],
+      photos: [
+        {
+          src: "/memories/adore-01.svg",
+          alt: "Adoration placeholder one for Bondeth and Salyna",
+          caption: "What I See",
+          hint: "This is a good place for one of your most beautiful portraits of Salyna.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/10]",
+        },
+        {
+          src: "/memories/adore-02.svg",
+          alt: "Adoration placeholder two for Bondeth and Salyna",
+          caption: "What I Treasure",
+          hint: "Use another image that feels graceful, bright, and deeply personal.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/10]",
+        },
+      ],
       cards: [
         {
           icon: GraduationCap,
@@ -357,6 +541,30 @@ export function MemoryBook() {
       quote:
         "Until we close the distance, I will keep loving you in patient, practical, and beautiful ways.",
       chips: ["Future reunions", "More anniversaries", "A life with room for both dreams"],
+      photos: [
+        {
+          src: "/memories/future-01.svg",
+          alt: "Future placeholder one for Bondeth and Salyna",
+          caption: "The Reunion",
+          hint: "An airport or together-again picture will feel powerful in this spot later.",
+          cardClassName: "col-span-2",
+          frameClassName: "aspect-[16/10]",
+        },
+        {
+          src: "/memories/future-02.svg",
+          alt: "Future placeholder two for Bondeth and Salyna",
+          caption: "Future Home",
+          hint: "You can replace this with a dream-life photo, a city view, or a place meaningful to both of you.",
+          frameClassName: "aspect-[4/5]",
+        },
+        {
+          src: "/memories/future-03.svg",
+          alt: "Future placeholder three for Bondeth and Salyna",
+          caption: "More Chapters",
+          hint: "Save this slot for a future anniversary, date, or memory you have not made yet.",
+          frameClassName: "aspect-[4/5]",
+        },
+      ],
       cards: [
         {
           icon: Plane,
@@ -479,9 +687,10 @@ export function MemoryBook() {
               <div className="grid gap-3 text-sm leading-6 text-rose-100/88">
                 <p>{daysTogether} days of choosing each other.</p>
                 <p>
-                  One first anniversary already written into your story, with many more
-                  pages waiting behind it.
+                  Your story started on {formatDate(RELATIONSHIP_START)}, and your first
+                  anniversary will arrive on {formatDate(FIRST_ANNIVERSARY)}.
                 </p>
+                <p>15 placeholder photo slots are ready for you in the album.</p>
               </div>
             </div>
           </aside>
@@ -548,9 +757,16 @@ export function MemoryBook() {
                         </span>
                       ))}
                     </div>
+
+                    <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-white/52 px-5 py-4 text-sm leading-6 text-rose-950/70">
+                      This chapter includes local placeholder artwork so you can replace it
+                      later with real photos without touching the layout.
+                    </div>
                   </div>
 
                   <div className="flex flex-col gap-4">
+                    <MemoryGallery photos={page.photos} />
+
                     {page.cards.map((card) => (
                       <div
                         key={card.title}

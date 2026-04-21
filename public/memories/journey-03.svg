@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="100" y1="80" x2="1490" y2="1136" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A8D4"/>
+      <stop offset="0.5" stop-color="#93C5FD"/>
+      <stop offset="1" stop-color="#E0F2FE"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="52" fill="url(#g)"/>
+  <rect x="78" y="78" width="1444" height="1044" rx="34" fill="#FDF4FF" fill-opacity=".7" stroke="#fff" stroke-opacity=".84" stroke-width="8"/>
+  <rect x="850" y="158" width="570" height="824" rx="36" fill="#fff" fill-opacity=".74"/>
+  <text x="150" y="832" fill="#9D174D" font-family="Arial, sans-serif" font-size="60" font-weight="700">Shared Dream Slot</text>
+  <text x="150" y="904" fill="#BE185D" font-family="Arial, sans-serif" font-size="36">journey-03.svg</text>
+  <text x="150" y="964" fill="#9F1239" font-family="Arial, sans-serif" font-size="30">Use an image that feels like both futures are moving together.</text>
+</svg>
