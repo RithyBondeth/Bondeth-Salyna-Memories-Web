@@ -1,5 +1,5 @@
-import { AdorePageComponent } from "./component";
+import { MemoryBookRoute } from "@/shared/memory-book";
 
 export default function AdorePage() {
-  return <AdorePageComponent />;
+  return <MemoryBookRoute sectionId="adore" />;
 }

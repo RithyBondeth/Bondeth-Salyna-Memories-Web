@@ -1,5 +1,5 @@
-import { DreamsPageComponent } from "./component";
+import { MemoryBookRoute } from "@/shared/memory-book";
 
 export default function DreamsPage() {
-  return <DreamsPageComponent />;
+  return <MemoryBookRoute sectionId="dreams" />;
 }

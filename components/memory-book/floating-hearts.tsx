@@ -1,5 +1,7 @@
 import { Heart } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 import { HEARTS } from "./constants";
 
 export function FloatingHearts() {
@@ -14,11 +16,22 @@ export function FloatingHearts() {
         className="absolute bottom-[-6%] left-[20%] h-96 w-96 rounded-full bg-fuchsia-200/30 blur-3xl animate-soft-float"
         style={{ animationDelay: "2.6s" }}
       />
+      <div
+        className="absolute right-[12%] top-[-8%] h-64 w-64 rounded-full bg-rose-100/40 blur-3xl animate-soft-float"
+        style={{ animationDelay: "3.4s" }}
+      />
+      <div
+        className="absolute bottom-[8%] right-[6%] h-72 w-72 rounded-full bg-pink-200/30 blur-3xl animate-soft-float"
+        style={{ animationDelay: "4.1s" }}
+      />
 
       {HEARTS.map((heart, index) => (
         <div
           key={index}
-          className="absolute text-pink-300/55 animate-heart-drift"
+          className={cn(
+            "absolute will-change-transform",
+            heart.containerClassName ?? "text-pink-300/55 animate-heart-drift"
+          )}
           style={{
             left: heart.left,
             top: heart.top,
@@ -28,7 +41,10 @@ export function FloatingHearts() {
         >
           <Heart
             fill="currentColor"
-            className="drop-shadow-[0_10px_30px_rgba(255,105,180,0.22)]"
+            className={cn(
+              "drop-shadow-[0_10px_30px_rgba(255,105,180,0.22)]",
+              heart.iconClassName
+            )}
             style={{ width: heart.size, height: heart.size }}
           />
         </div>

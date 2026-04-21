@@ -1,5 +1,5 @@
-import { DatesPageComponent } from "./component";
+import { MemoryBookRoute } from "@/shared/memory-book";
 
 export default function DatesPage() {
-  return <DatesPageComponent />;
+  return <MemoryBookRoute sectionId="dates" />;
 }

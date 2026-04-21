@@ -1,5 +1,5 @@
-import { CoverPageComponent } from "./component";
+import { MemoryBookRoute } from "@/shared/memory-book";
 
 export default function CoverPage() {
-  return <CoverPageComponent />;
+  return <MemoryBookRoute sectionId="cover" />;
 }

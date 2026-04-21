@@ -1,5 +1,5 @@
-import { DistancePageComponent } from "./component";
+import { MemoryBookRoute } from "@/shared/memory-book";
 
 export default function DistancePage() {
-  return <DistancePageComponent />;
+  return <MemoryBookRoute sectionId="distance" />;
 }

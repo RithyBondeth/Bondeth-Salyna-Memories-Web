@@ -1,5 +1,5 @@
-import { FuturePageComponent } from "./component";
+import { MemoryBookRoute } from "@/shared/memory-book";
 
 export default function FuturePage() {
-  return <FuturePageComponent />;
+  return <MemoryBookRoute sectionId="future" />;
 }

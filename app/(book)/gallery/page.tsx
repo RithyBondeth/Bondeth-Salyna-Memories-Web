@@ -1,5 +1,5 @@
-import { GalleryPageComponent } from "./component";
+import { MemoryBookRoute } from "@/shared/memory-book";
 
 export default function GalleryPage() {
-  return <GalleryPageComponent />;
+  return <MemoryBookRoute sectionId="gallery" />;
 }
