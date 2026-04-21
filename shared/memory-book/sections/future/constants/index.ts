@@ -15,20 +15,20 @@ export function createFuturePage(): BookPage {
       "My love for you is a promise I am already turning into real decisions.",
     photos: [
       {
-        src: "/memories/future-01.svg",
+        src: "/assets/future/future-01.png",
         alt: "Future placeholder \u2014 a reunion",
         caption: "The next time I see you",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/memories/future-02.svg",
+        src: "/assets/future/future-02.png",
         alt: "Future placeholder \u2014 a home",
         caption: "Somewhere ours",
         frameClassName: "aspect-[4/5]",
       },
       {
-        src: "/memories/future-03.svg",
+        src: "/assets/future/future-03.png",
         alt: "Future placeholder \u2014 more chapters",
         caption: "Chapters to come",
         frameClassName: "aspect-[4/5]",

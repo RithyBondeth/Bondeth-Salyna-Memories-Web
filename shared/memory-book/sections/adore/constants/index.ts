@@ -15,14 +15,14 @@ export function createAdorePage(): BookPage {
       "You are beautiful because your mind and your heart refuse to separate.",
     photos: [
       {
-        src: "/memories/adore-01.svg",
+        src: "/assets/adore/adore-01.png",
         alt: "Adoration placeholder \u2014 a portrait",
         caption: "The way you look",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/memories/adore-02.svg",
+        src: "/assets/adore/adore-02.png",
         alt: "Adoration placeholder \u2014 a studying moment",
         caption: "The way you work",
         cardClassName: "col-span-2",

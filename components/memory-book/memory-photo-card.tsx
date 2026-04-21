@@ -6,7 +6,7 @@ import type { MemoryPhoto } from "./types";
 
 function isPlaceholderPhoto(photo: MemoryPhoto) {
   if (photo.source === "upload") return false;
-  return photo.src.startsWith("/memories/") && photo.src.endsWith(".svg");
+  return photo.src.startsWith("/assets/") && photo.src.endsWith(".png");
 }
 
 export function MemoryPhotoCard({ photo }: { photo: MemoryPhoto }) {

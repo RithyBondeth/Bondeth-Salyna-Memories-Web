@@ -15,20 +15,20 @@ export function createDreamsPage(): BookPage {
       "You did not just visit me. You rewrote the shape of what I call a normal day.",
     photos: [
       {
-        src: "/memories/journey-01.svg",
+        src: "/assets/dreams/journey-01.png",
         alt: "Visit placeholder \u2014 Salyna in Cambodia",
         caption: "When you landed",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/memories/journey-02.svg",
+        src: "/assets/dreams/journey-02.png",
         alt: "Visit placeholder \u2014 a quiet moment together",
         caption: "Ordinary hours",
         frameClassName: "aspect-[4/5]",
       },
       {
-        src: "/memories/journey-03.svg",
+        src: "/assets/dreams/journey-03.png",
         alt: "Visit placeholder \u2014 shared motivation",
         caption: "Side by side",
         frameClassName: "aspect-[4/5]",

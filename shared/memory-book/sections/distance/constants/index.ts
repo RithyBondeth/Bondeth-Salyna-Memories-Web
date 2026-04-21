@@ -16,14 +16,14 @@ export function createDistancePage(): BookPage {
       "Loving you across an ocean is heavy. Not loving you would be impossible.",
     photos: [
       {
-        src: "/memories/distance-01.svg",
+        src: "/assets/distance/distance-01.png",
         alt: "Distance placeholder \u2014 a late call",
         caption: "Late calls",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/9]",
       },
       {
-        src: "/memories/distance-02.svg",
+        src: "/assets/distance/distance-02.png",
         alt: "Distance placeholder \u2014 the quiet after",
         caption: "The quiet after",
         cardClassName: "col-span-2",

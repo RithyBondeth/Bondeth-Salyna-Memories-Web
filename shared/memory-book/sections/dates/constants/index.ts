@@ -22,14 +22,14 @@ export function createDatesPage(metrics: RelationshipMetrics): BookPage {
       "Love takes a handful of calendar days and turns them into monuments.",
     photos: [
       {
-        src: "/memories/timeline-01.svg",
+        src: "/assets/dates/timeline-01.png",
         alt: "Timeline placeholder \u2014 a meaningful day",
         caption: "Our first day",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/memories/timeline-02.svg",
+        src: "/assets/dates/timeline-02.png",
         alt: "Timeline placeholder \u2014 a small celebration",
         caption: "A small celebration",
         cardClassName: "col-span-2",

@@ -15,20 +15,20 @@ export function createCoverPage(): BookPage {
       "No flight, no time zone, no silence has ever loosened my grip on you.",
     photos: [
       {
-        src: "/memories/cover-01.svg",
+        src: "/assets/cover/cover-01.png",
         alt: "Cover placeholder for Bondeth and Salyna's digital memory book",
         caption: "Us",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/memories/cover-02.svg",
+        src: "/assets/cover/cover-02.png",
         alt: "Cover portrait placeholder",
         caption: "Your smile",
         frameClassName: "aspect-[4/5]",
       },
       {
-        src: "/memories/cover-03.svg",
+        src: "/assets/cover/cover-03.png",
         alt: "Cover candid placeholder",
         caption: "A quiet moment",
         frameClassName: "aspect-[4/5]",
