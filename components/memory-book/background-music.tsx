@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Music2, Pause } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -14,6 +14,18 @@ export function BackgroundMusic() {
   const [hasStarted, setHasStarted] = useState(false);
   const [isAvailable, setIsAvailable] = useState(true);
 
+  const attemptStart = useCallback(() => {
+    const target = audioRef.current;
+    if (!target || !target.paused) return;
+    target.play()
+      .then(() => {
+        setHasStarted(true);
+      })
+      .catch(() => {
+        // autoplay blocked - will try on user interaction
+      });
+  }, []);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -22,44 +34,39 @@ export function BackgroundMusic() {
 
     const handleError = () => setIsAvailable(false);
     const handlePause = () => setIsPlaying(false);
-    const handlePlay = () => {
-      setIsPlaying(true);
-      setHasStarted(true);
-    };
+    const handlePlay = () => setIsPlaying(true);
 
     audio.addEventListener("error", handleError);
     audio.addEventListener("pause", handlePause);
     audio.addEventListener("play", handlePlay);
 
-    const attemptStart = () => {
-      const target = audioRef.current;
-      if (!target || !target.paused) return;
-      target.play().catch(() => {
-        // autoplay blocked \u2014 user will need a gesture
-      });
-    };
-
-    attemptStart();
-
-    const onFirstInteraction = () => attemptStart();
-    window.addEventListener("pointerdown", onFirstInteraction, { once: true });
-    window.addEventListener("keydown", onFirstInteraction, { once: true });
-
     return () => {
       audio.removeEventListener("error", handleError);
       audio.removeEventListener("pause", handlePause);
       audio.removeEventListener("play", handlePlay);
-      window.removeEventListener("pointerdown", onFirstInteraction);
-      window.removeEventListener("keydown", onFirstInteraction);
     };
   }, []);
+
+  useEffect(() => {
+    const onFirstInteraction = () => attemptStart();
+    document.addEventListener("click", onFirstInteraction, { once: true });
+    document.addEventListener("keydown", onFirstInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener("click", onFirstInteraction);
+      document.removeEventListener("keydown", onFirstInteraction);
+    };
+  }, [attemptStart]);
 
   const toggle = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
     if (audio.paused) {
-      audio.play().catch(() => setIsAvailable(false));
+      audio
+        .play()
+        .then(() => setHasStarted(true))
+        .catch(() => setIsAvailable(false));
     } else {
       audio.pause();
     }
