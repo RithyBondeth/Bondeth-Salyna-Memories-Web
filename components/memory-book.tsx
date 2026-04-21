@@ -274,62 +274,61 @@ function MemoryGallery({ photos }: { photos: MemoryPhoto[] }) {
 
 function CategorizedGallery({ categories }: { categories: GalleryCategory[] }) {
   return (
-    <section className="grid gap-4 rounded-[2rem] border border-white/68 bg-white/54 p-4 shadow-[0_20px_48px_rgba(190,24,93,0.08)] backdrop-blur-md sm:p-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose-500">
-            Gallery Archive
-          </p>
-          <h3 className="mt-1 font-heading text-3xl text-rose-950">
-            Photos By Category
-          </h3>
-        </div>
+    <div className="grid gap-8">
+      {categories.map((category) => (
+        <section key={category.title} className="grid gap-4">
+          <div className="flex items-center gap-3">
+            <h3 className="font-heading text-3xl text-rose-950">{category.title}</h3>
+            <div className="h-px flex-1 bg-gradient-to-r from-rose-300/60 to-transparent" />
+          </div>
 
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/75 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-rose-600">
-          <ImageIcon className="size-3.5" />
-          /public/memories/gallery
-        </div>
-      </div>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {category.photos.map((photo) => (
+              <figure
+                key={photo.src}
+                className={cn(
+                  "group relative overflow-hidden rounded-[2rem] border border-white/72 bg-white/72 p-2 shadow-[0_20px_46px_rgba(190,24,93,0.1)]",
+                  photo.cardClassName
+                )}
+              >
+                <div
+                  className={cn(
+                    "relative overflow-hidden rounded-[1.5rem] bg-rose-100",
+                    photo.frameClassName ?? "aspect-[4/5]"
+                  )}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className={cn(
+                      "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]",
+                      photo.imageClassName
+                    )}
+                  />
 
-      <div className="grid gap-4">
-        {categories.map((category) => (
-          <section
-            key={category.title}
-            className="rounded-[1.8rem] border border-white/70 bg-white/70 p-4 shadow-[0_18px_42px_rgba(190,24,93,0.08)]"
-          >
-            <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-              <div className="space-y-1">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-500">
-                  {category.folder}
-                </p>
-                <h4 className="font-heading text-2xl text-rose-950">{category.title}</h4>
-                <p className="max-w-xl text-sm leading-6 text-rose-950/68">
-                  {category.description}
-                </p>
-              </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-rose-950/24 via-transparent to-white/10 transition-all duration-300 group-hover:from-rose-950/82 group-hover:via-rose-950/34 group-hover:to-rose-950/10" />
 
-              <span className="rounded-full border border-rose-200 bg-rose-50 px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-rose-600">
-                {category.photos.length} Slots
-              </span>
-            </div>
+                  <div className="absolute inset-x-0 bottom-0 translate-y-5 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="rounded-[1.3rem] bg-black/24 p-4 backdrop-blur-md">
+                      <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-rose-100">
+                        Description
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-white/92">{photo.hint}</p>
+                    </div>
+                  </div>
+                </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {category.photos.map((photo) => (
-                <MemoryPhotoCard key={photo.src} photo={photo} />
-              ))}
-            </div>
-          </section>
-        ))}
-      </div>
-
-      <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-rose-50/55 px-4 py-3 text-sm leading-6 text-rose-950/70">
-        Keep your real photos organized by category inside
-        {" "}
-        <span className="font-semibold text-rose-700">/public/memories/gallery</span>
-        {" "}
-        and replace these placeholders whenever you are ready.
-      </div>
-    </section>
+                <figcaption className="px-2 pb-2 pt-3 font-heading text-xl text-rose-950">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
   );
 }
 
@@ -434,6 +433,20 @@ export function MemoryBook() {
               hint: "Another couple memory can live here as the archive grows.",
               frameClassName: "aspect-[4/5]",
             },
+            {
+              src: "/memories/gallery/together-03.svg",
+              alt: "Together moments placeholder three for Bondeth and Salyna",
+              caption: "Together 03",
+              hint: "Use this for another favorite selfie or a cozy candid moment.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/together-04.svg",
+              alt: "Together moments placeholder four for Bondeth and Salyna",
+              caption: "Together 04",
+              hint: "A playful memory, date photo, or sweet pose would fit nicely here.",
+              frameClassName: "aspect-[4/5]",
+            },
           ],
         },
         {
@@ -453,6 +466,20 @@ export function MemoryBook() {
               alt: "Video call placeholder two for Bondeth and Salyna",
               caption: "Call 02",
               hint: "Use this for another sweet moment from distance.",
+              frameClassName: "aspect-[16/10]",
+            },
+            {
+              src: "/memories/gallery/calls-03.svg",
+              alt: "Video call placeholder three for Bondeth and Salyna",
+              caption: "Call 03",
+              hint: "A screenshot from a laughter-filled call would be perfect here.",
+              frameClassName: "aspect-[16/10]",
+            },
+            {
+              src: "/memories/gallery/calls-04.svg",
+              alt: "Video call placeholder four for Bondeth and Salyna",
+              caption: "Call 04",
+              hint: "Save a late-night check-in or quiet video-call moment in this slot.",
               frameClassName: "aspect-[16/10]",
             },
           ],
@@ -476,6 +503,20 @@ export function MemoryBook() {
               hint: "Another meaningful milestone can be saved here.",
               frameClassName: "aspect-[4/5]",
             },
+            {
+              src: "/memories/gallery/dates-03.svg",
+              alt: "Dates and gifts placeholder three for Bondeth and Salyna",
+              caption: "Dates 03",
+              hint: "Use this for flowers, a surprise, or a memory from a celebration.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/dates-04.svg",
+              alt: "Dates and gifts placeholder four for Bondeth and Salyna",
+              caption: "Dates 04",
+              hint: "Another treasured gift or meaningful relationship date can live here.",
+              frameClassName: "aspect-[4/5]",
+            },
           ],
         },
         {
@@ -495,6 +536,20 @@ export function MemoryBook() {
               alt: "Salyna placeholder two for the gallery archive",
               caption: "Salyna 02",
               hint: "A candid or study photo would also look lovely here.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/salyna-03.svg",
+              alt: "Salyna placeholder three for the gallery archive",
+              caption: "Salyna 03",
+              hint: "Another portrait, smile, or elegant moment can be kept here.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/salyna-04.svg",
+              alt: "Salyna placeholder four for the gallery archive",
+              caption: "Salyna 04",
+              hint: "A photo that feels especially radiant or personal would fit here beautifully.",
               frameClassName: "aspect-[4/5]",
             },
           ],
@@ -518,6 +573,20 @@ export function MemoryBook() {
               hint: "Save another moment from your life in Cambodia here.",
               frameClassName: "aspect-[4/5]",
             },
+            {
+              src: "/memories/gallery/bondeth-03.svg",
+              alt: "Bondeth placeholder three for the gallery archive",
+              caption: "Bondeth 03",
+              hint: "Another portrait, everyday moment, or work-life memory can go here.",
+              frameClassName: "aspect-[4/5]",
+            },
+            {
+              src: "/memories/gallery/bondeth-04.svg",
+              alt: "Bondeth placeholder four for the gallery archive",
+              caption: "Bondeth 04",
+              hint: "Use this for a casual photo that captures your side of the story.",
+              frameClassName: "aspect-[4/5]",
+            },
           ],
         },
         {
@@ -537,6 +606,20 @@ export function MemoryBook() {
               alt: "Future us placeholder two for Bondeth and Salyna",
               caption: "Future 02",
               hint: "Keep this ready for a future anniversary or new chapter.",
+              frameClassName: "aspect-[16/10]",
+            },
+            {
+              src: "/memories/gallery/future-03.svg",
+              alt: "Future us placeholder three for Bondeth and Salyna",
+              caption: "Future 03",
+              hint: "A future trip, celebration, or reunion memory could be saved here.",
+              frameClassName: "aspect-[16/10]",
+            },
+            {
+              src: "/memories/gallery/future-04.svg",
+              alt: "Future us placeholder four for Bondeth and Salyna",
+              caption: "Future 04",
+              hint: "Keep one more space open for a chapter you have not written yet.",
               frameClassName: "aspect-[16/10]",
             },
           ],
@@ -833,6 +916,7 @@ export function MemoryBook() {
   const theme = PAGE_THEMES[currentPage % PAGE_THEMES.length];
   const isFirstPage = currentPage === 0;
   const isLastPage = currentPage === pages.length - 1;
+  const isGalleryPage = page.id === "gallery";
 
   const goToPage = (nextPage: number) => {
     startTransition(() => {
@@ -958,88 +1042,96 @@ export function MemoryBook() {
               <div className="paper-sheen absolute inset-0" />
 
               <div className="relative rounded-[2.25rem] border border-white/65 bg-white/38 p-5 backdrop-blur-md sm:p-6 lg:p-8">
-                <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
-                  <div className="flex flex-col gap-6">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="rounded-full bg-rose-950 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-50">
-                        {page.eyebrow}
-                      </span>
-                      <span className="rounded-full border border-white/70 bg-white/66 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-600">
-                        Page {currentPage + 1} of {pages.length}
-                      </span>
-                    </div>
+                {isGalleryPage ? (
+                  <div className="grid gap-6">
+                    <h2 className="font-heading text-4xl leading-none tracking-tight text-rose-950 sm:text-5xl lg:text-[4.2rem]">
+                      {page.title}
+                    </h2>
 
-                    <div className="space-y-4">
-                      <h2 className="max-w-2xl font-heading text-4xl leading-none tracking-tight text-rose-950 sm:text-5xl lg:text-[3.75rem]">
-                        {page.title}
-                      </h2>
-                      <p className="max-w-2xl text-lg leading-8 text-rose-950/72">
-                        {page.subtitle}
-                      </p>
-                    </div>
-
-                    <p className="max-w-2xl text-base leading-8 text-rose-950/78 sm:text-lg">
-                      {page.intro}
-                    </p>
-
-                    <blockquote className="rounded-[1.8rem] border border-white/70 bg-white/62 p-5 font-heading text-2xl leading-9 text-rose-900 shadow-[0_18px_40px_rgba(190,24,93,0.08)]">
-                      “{page.quote}”
-                    </blockquote>
-
-                    <div className="flex flex-wrap gap-3">
-                      {page.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className={cn(
-                            "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em]",
-                            theme.chip
-                          )}
-                        >
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-white/52 px-5 py-4 text-sm leading-6 text-rose-950/70">
-                      This chapter includes local placeholder artwork so you can replace it
-                      later with real photos without touching the layout.
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-4">
                     {page.galleryCategories ? (
                       <CategorizedGallery categories={page.galleryCategories} />
-                    ) : (
-                      <MemoryGallery photos={page.photos} />
-                    )}
+                    ) : null}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
+                    <div className="flex flex-col gap-6">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="rounded-full bg-rose-950 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-50">
+                          {page.eyebrow}
+                        </span>
+                        <span className="rounded-full border border-white/70 bg-white/66 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-rose-600">
+                          Page {currentPage + 1} of {pages.length}
+                        </span>
+                      </div>
 
-                    {page.cards.map((card) => (
-                      <div
-                        key={card.title}
-                        className={cn(
-                          "rounded-[1.8rem] border border-white/68 p-5 shadow-[0_20px_45px_rgba(190,24,93,0.08)] backdrop-blur-md",
-                          theme.card
-                        )}
-                      >
-                        <div className="mb-4 flex items-center gap-3">
-                          <div className="rounded-2xl bg-rose-950 p-3 text-rose-50 shadow-[0_10px_24px_rgba(136,19,55,0.22)]">
-                            <card.icon className="size-5" />
-                          </div>
-                          <h3 className="font-heading text-2xl text-rose-950">
-                            {card.title}
-                          </h3>
-                        </div>
-                        <p className="text-sm leading-7 text-rose-950/74 sm:text-[0.98rem]">
-                          {card.body}
+                      <div className="space-y-4">
+                        <h2 className="max-w-2xl font-heading text-4xl leading-none tracking-tight text-rose-950 sm:text-5xl lg:text-[3.75rem]">
+                          {page.title}
+                        </h2>
+                        <p className="max-w-2xl text-lg leading-8 text-rose-950/72">
+                          {page.subtitle}
                         </p>
                       </div>
-                    ))}
 
-                    <div className="rounded-[1.8rem] border border-dashed border-rose-300/80 bg-white/54 p-5 text-sm leading-7 text-rose-950/72">
-                      {page.note}
+                      <p className="max-w-2xl text-base leading-8 text-rose-950/78 sm:text-lg">
+                        {page.intro}
+                      </p>
+
+                      <blockquote className="rounded-[1.8rem] border border-white/70 bg-white/62 p-5 font-heading text-2xl leading-9 text-rose-900 shadow-[0_18px_40px_rgba(190,24,93,0.08)]">
+                        “{page.quote}”
+                      </blockquote>
+
+                      <div className="flex flex-wrap gap-3">
+                        {page.chips.map((chip) => (
+                          <span
+                            key={chip}
+                            className={cn(
+                              "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em]",
+                              theme.chip
+                            )}
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="rounded-[1.6rem] border border-dashed border-rose-300/75 bg-white/52 px-5 py-4 text-sm leading-6 text-rose-950/70">
+                        This chapter includes local placeholder artwork so you can replace it
+                        later with real photos without touching the layout.
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                      <MemoryGallery photos={page.photos} />
+
+                      {page.cards.map((card) => (
+                        <div
+                          key={card.title}
+                          className={cn(
+                            "rounded-[1.8rem] border border-white/68 p-5 shadow-[0_20px_45px_rgba(190,24,93,0.08)] backdrop-blur-md",
+                            theme.card
+                          )}
+                        >
+                          <div className="mb-4 flex items-center gap-3">
+                            <div className="rounded-2xl bg-rose-950 p-3 text-rose-50 shadow-[0_10px_24px_rgba(136,19,55,0.22)]">
+                              <card.icon className="size-5" />
+                            </div>
+                            <h3 className="font-heading text-2xl text-rose-950">
+                              {card.title}
+                            </h3>
+                          </div>
+                          <p className="text-sm leading-7 text-rose-950/74 sm:text-[0.98rem]">
+                            {card.body}
+                          </p>
+                        </div>
+                      ))}
+
+                      <div className="rounded-[1.8rem] border border-dashed border-rose-300/80 bg-white/54 p-5 text-sm leading-7 text-rose-950/72">
+                        {page.note}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </article>
           </div>
