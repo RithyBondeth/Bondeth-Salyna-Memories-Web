@@ -16,18 +16,28 @@ export function createDistancePage(): BookPage {
       "Loving you from far away is heavy. Not loving you would be impossible.",
     photos: [
       {
-        src: "/assets/distance/distance-01.png",
-        alt: "Distance placeholder \u2014 a late call",
-        caption: "Late calls",
-        cardClassName: "col-span-2",
-        frameClassName: "aspect-[16/9]",
+        src: "/assets/distance/distance-01.HEIC",
+        alt: "Our last goodbye",
+        caption: "Last Goodbye",
+        frameClassName: "aspect-[3/4]",
       },
       {
-        src: "/assets/distance/distance-02.png",
-        alt: "Distance placeholder \u2014 the quiet after",
-        caption: "The quiet after",
-        cardClassName: "col-span-2",
-        frameClassName: "aspect-[16/9]",
+        src: "/assets/distance/distance-02.HEIC",
+        alt: "Our last hug",
+        caption: "Last Hug",
+        frameClassName: "aspect-[3/4]",
+      },
+      {
+        src: "/assets/distance/distance-03.HEIC",
+        alt: "Our last kiss",
+        caption: "Last Kiss",
+        frameClassName: "aspect-[3/4]",
+      },
+      {
+        src: "/assets/distance/distance-04.HEIC",
+        alt: "Our last ice cream together",
+        caption: "Last Ice Cream",
+        frameClassName: "aspect-[3/4]",
       },
     ],
     cards: [
@@ -42,7 +52,6 @@ export function createDistancePage(): BookPage {
         body: "Your voice on late calls. Your small messages before you sleep. The photos I open when I need proof that you are real, that you are mine, and that these months apart are only the middle of the story \u2014 not the ending.",
       },
     ],
-    note:
-      "On the hardest nights, I never wonder about us. I only wonder how soon I can hold you again.",
+    note: "On the hardest nights, I never wonder about us. I only wonder how soon I can hold you again.",
   };
 }

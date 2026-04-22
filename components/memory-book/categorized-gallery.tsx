@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
+import { AssetImage } from "./asset-image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -60,7 +60,7 @@ function Lightbox({
 
         {/* Photo */}
         <div className="relative max-h-[78dvh] w-full overflow-hidden rounded-[1.8rem] border border-white/18 shadow-[0_40px_100px_rgba(0,0,0,0.5)]">
-          <Image
+          <AssetImage
             key={photo.src}
             src={photo.src}
             alt={photo.alt}
@@ -163,7 +163,7 @@ export function CategorizedGallery({
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
               {category.photos.map((photo, photoIndex) => (
                 <figure
                   key={photo.id ?? photo.src}
@@ -179,11 +179,11 @@ export function CategorizedGallery({
                       photo.frameClassName ?? "aspect-[4/5]",
                     )}
                   >
-                    <Image
+                    <AssetImage
                       src={photo.src}
                       alt={photo.alt}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 50vw, 50vw"
                       className={cn(
                         "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]",
                         photo.imageClassName,

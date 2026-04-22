@@ -29,7 +29,7 @@ export type GalleryCategory = {
   photos: MemoryPhoto[];
 };
 
-export type BookPageVariant = "story" | "gallery" | "letter";
+export type BookPageVariant = "story" | "gallery" | "letter" | "together";
 
 export type BookPage = {
   id: string;

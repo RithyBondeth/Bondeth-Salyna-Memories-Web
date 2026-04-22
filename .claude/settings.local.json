@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(npx tsc *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(sips --version)",
+      "Bash(node -e \"const sharp = require\\('sharp'\\); sharp\\('/Users/bondeth/Projects/bondeth-salyna-memories-web/public/assets/introduction/introduction-02.HEIC'\\).metadata\\(\\).then\\(m => console.log\\('sharp reads HEIC:', m.format, m.width, 'x', m.height\\)\\).catch\\(e => console.log\\('sharp error:', e.message\\)\\)\")",
+      "Bash(node -e ' *)"
     ]
   }
 }

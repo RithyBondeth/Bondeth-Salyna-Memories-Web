@@ -1,3 +1,5 @@
+"use client";
+
 import { AssetImage } from "./asset-image";
 import { Heart } from "lucide-react";
 
@@ -7,95 +9,85 @@ import { AnimatedText } from "./animated-text";
 import { ScrollReveal } from "./scroll-reveal";
 import type { BookPage } from "./types";
 
-/* ─── per-card accent palette (shared with adorations) ──────────── */
+/* ─── per-card accent palette ────────────────────────────────── */
 const ACCENTS = [
-  // 0
+  // 0 Beauty
   {
-    card: "from-rose-50/95 via-pink-50/85 to-rose-50/70",
-    icon: "from-rose-700 to-rose-950",
-    num:  "text-rose-200/60",
-    chip: "bg-rose-100/80 text-rose-700",
+    card:  "from-rose-50/95 via-pink-50/85 to-rose-50/70",
+    icon:  "from-rose-700 to-rose-950",
+    num:   "text-rose-200/60",
+    chip:  "bg-rose-100/80 text-rose-700",
   },
-  // 1
+  // 1 Intelligence
   {
-    card: "from-fuchsia-50/90 via-purple-50/80 to-rose-50/70",
-    icon: "from-fuchsia-700 to-fuchsia-950",
-    num:  "text-fuchsia-200/55",
-    chip: "bg-fuchsia-100/80 text-fuchsia-700",
+    card:  "from-fuchsia-50/90 via-purple-50/80 to-rose-50/70",
+    icon:  "from-fuchsia-700 to-fuchsia-950",
+    num:   "text-fuchsia-200/55",
+    chip:  "bg-fuchsia-100/80 text-fuchsia-700",
   },
-  // 2
+  // 2 Hardworking
   {
-    card: "from-amber-50/80 via-rose-50/85 to-pink-50/70",
-    icon: "from-amber-600 to-rose-800",
-    num:  "text-amber-200/55",
-    chip: "bg-amber-100/80 text-amber-700",
+    card:  "from-amber-50/80 via-rose-50/85 to-pink-50/70",
+    icon:  "from-amber-600 to-rose-800",
+    num:   "text-amber-200/55",
+    chip:  "bg-amber-100/80 text-amber-700",
   },
-  // 3
+  // 3 Maturity
   {
-    card: "from-rose-100/90 via-pink-50/85 to-rose-50/75",
-    icon: "from-rose-800 to-rose-950",
-    num:  "text-rose-300/50",
-    chip: "bg-rose-100/80 text-rose-800",
+    card:  "from-rose-100/90 via-pink-50/85 to-rose-50/75",
+    icon:  "from-rose-800 to-rose-950",
+    num:   "text-rose-300/50",
+    chip:  "bg-rose-100/80 text-rose-800",
   },
-  // 4
+  // 4 Mindset
   {
-    card: "from-violet-50/85 via-purple-50/75 to-rose-50/70",
-    icon: "from-violet-700 to-violet-950",
-    num:  "text-violet-200/55",
-    chip: "bg-violet-100/80 text-violet-700",
+    card:  "from-violet-50/85 via-purple-50/75 to-rose-50/70",
+    icon:  "from-violet-700 to-violet-950",
+    num:   "text-violet-200/55",
+    chip:  "bg-violet-100/80 text-violet-700",
   },
-  // 5
+  // 5 Honesty
   {
-    card: "from-pink-50/90 via-fuchsia-50/80 to-rose-50/70",
-    icon: "from-pink-700 to-rose-900",
-    num:  "text-pink-200/55",
-    chip: "bg-pink-100/80 text-pink-700",
+    card:  "from-pink-50/90 via-fuchsia-50/80 to-rose-50/70",
+    icon:  "from-pink-700 to-rose-900",
+    num:   "text-pink-200/55",
+    chip:  "bg-pink-100/80 text-pink-700",
   },
-  // 6
+  // 6 Loyalty
   {
-    card: "from-rose-50/90 via-fuchsia-50/80 to-pink-50/70",
-    icon: "from-rose-700 to-fuchsia-900",
-    num:  "text-rose-200/55",
-    chip: "bg-rose-100/80 text-rose-700",
+    card:  "from-rose-50/90 via-fuchsia-50/80 to-pink-50/70",
+    icon:  "from-rose-700 to-fuchsia-900",
+    num:   "text-rose-200/55",
+    chip:  "bg-rose-100/80 text-rose-700",
   },
-  // 7
+  // 7 Respect
   {
-    card: "from-violet-50/80 via-pink-50/80 to-rose-50/75",
-    icon: "from-violet-700 to-rose-900",
-    num:  "text-violet-200/55",
-    chip: "bg-violet-100/80 text-violet-700",
+    card:  "from-violet-50/80 via-pink-50/80 to-rose-50/75",
+    icon:  "from-violet-700 to-rose-900",
+    num:   "text-violet-200/55",
+    chip:  "bg-violet-100/80 text-violet-700",
   },
 ];
 
-/* ─── dynamic column spans by card count ─────────────────────────── */
-function getSpans(count: number): number[] {
-  if (count === 1) return [2];
-  if (count === 2) return [2, 2];
-  if (count === 3) return [2, 1, 1];
-  if (count === 4) return [2, 1, 1, 2];
-  if (count === 6) return [2, 1, 1, 2, 1, 1];
-  if (count === 8) return [2, 1, 1, 2, 1, 1, 2, 2];
-  return Array(count).fill(1);
-}
+// Grid column spans: [2,1,1,2,1,1,2,2] in a 2-col grid
+const SPANS = [2, 1, 1, 2, 1, 1, 2, 2];
 
-/* ─── featured (full-width) card ─────────────────────────────────── */
+/* ─── featured (wide) card ───────────────────────────────────── */
 function FeaturedCard({
   card,
   index,
   accent,
-  total,
 }: {
   card: BookPage["cards"][number];
   index: number;
   accent: (typeof ACCENTS)[number];
-  total: number;
 }) {
   return (
     <div
       className={cn(
         "group relative flex min-h-[8rem] flex-col justify-between overflow-hidden",
-        "rounded-[1.8rem] border border-white/70 bg-gradient-to-br p-5 shadow-[0_18px_48px_rgba(190,24,93,0.1)] sm:p-6",
-        "sm:flex-row sm:items-stretch sm:gap-6",
+        "rounded-[1.8rem] border border-white/70 bg-gradient-to-br p-5 shadow-[0_18px_48px_rgba(190,24,93,0.1)]",
+        "sm:flex-row sm:items-stretch sm:gap-6 sm:p-6",
         accent.card,
       )}
     >
@@ -120,13 +112,14 @@ function FeaturedCard({
         >
           <card.icon className="size-5 sm:size-6" />
         </div>
+
         <span
           className={cn(
             "w-fit rounded-full border border-white/60 px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em]",
             accent.chip,
           )}
         >
-          {index + 1} of {total}
+          {index + 1} of {8}
         </span>
       </div>
 
@@ -135,7 +128,7 @@ function FeaturedCard({
         <h3 className="font-heading text-xl leading-tight text-rose-950 sm:text-2xl lg:text-3xl">
           {card.title}
         </h3>
-        <p className="max-w-prose text-[0.82rem] leading-7 text-rose-950/72 sm:text-sm">
+        <p className="max-w-prose text-[0.82rem] leading-7 text-rose-950/72 sm:text-[0.95rem]">
           {card.body}
         </p>
       </div>
@@ -143,17 +136,15 @@ function FeaturedCard({
   );
 }
 
-/* ─── regular (half-width) card ──────────────────────────────────── */
+/* ─── regular (narrow) card ─────────────────────────────────── */
 function RegularCard({
   card,
   index,
   accent,
-  total,
 }: {
   card: BookPage["cards"][number];
   index: number;
   accent: (typeof ACCENTS)[number];
-  total: number;
 }) {
   return (
     <div
@@ -194,23 +185,21 @@ function RegularCard({
         </p>
       </div>
 
-      {/* Subtle chip */}
+      {/* Chip */}
       <span
         className={cn(
           "mt-auto w-fit rounded-full border border-white/50 px-2 py-0.5 text-[0.55rem] font-semibold uppercase tracking-[0.18em]",
           accent.chip,
         )}
       >
-        {index + 1} / {total}
+        {index + 1} / 8
       </span>
     </div>
   );
 }
 
-/* ─── main page ──────────────────────────────────────────────────── */
-export function StoryPage({ page }: { page: BookPage }) {
-  const spans = getSpans(page.cards.length);
-
+/* ─── main page ──────────────────────────────────────────────── */
+export function AdorationsPage({ page }: { page: BookPage }) {
   return (
     <div className="flex flex-col gap-5 py-1 sm:gap-6">
 
@@ -258,7 +247,7 @@ export function StoryPage({ page }: { page: BookPage }) {
                   alt={photo.alt}
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw, 30vw"
+                  sizes="(max-width: 640px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-rose-950/40 via-transparent to-white/10" />
               </div>
@@ -272,7 +261,7 @@ export function StoryPage({ page }: { page: BookPage }) {
         </div>
       )}
 
-      {/* ── Quote + intro card ── */}
+      {/* ── Section intro + quote ── */}
       <div className="relative overflow-hidden rounded-[1.6rem] border border-rose-100/60 bg-gradient-to-br from-white/80 to-rose-50/70 p-4 shadow-[0_16px_40px_rgba(190,24,93,0.09)] sm:rounded-[1.8rem] sm:p-6">
         <span className="pointer-events-none absolute left-3 top-0 select-none font-heading text-[4.5rem] leading-none text-rose-200/60 sm:text-[6rem]">
           &ldquo;
@@ -292,41 +281,41 @@ export function StoryPage({ page }: { page: BookPage }) {
         </p>
       </div>
 
-      {/* ── Divider ── */}
-      {page.cards.length > 0 && (
-        <div className="flex items-center gap-3">
-          <div className="h-px flex-1 bg-gradient-to-r from-rose-300/60 to-transparent" />
-          <Heart className="size-3 fill-rose-300 text-rose-300" />
-          <div className="h-px flex-1 bg-gradient-to-l from-rose-300/60 to-transparent" />
-        </div>
-      )}
+      {/* ── Adoration cards section label ── */}
+      <div className="flex items-center gap-3">
+        <div className="h-px flex-1 bg-gradient-to-r from-rose-300/60 to-transparent" />
+        <p className="shrink-0 text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-rose-400 sm:text-[0.62rem] sm:tracking-[0.3em]">
+          8 things I adore about you
+        </p>
+        <div className="h-px flex-1 bg-gradient-to-l from-rose-300/60 to-transparent" />
+      </div>
 
       {/* ── Bento grid ── */}
-      {page.cards.length > 0 && (
-        <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
-          {page.cards.map((card, i) => {
-            const accent = ACCENTS[i % ACCENTS.length] ?? ACCENTS[0];
-            const span   = spans[i] ?? 1;
-            const isFeatured = span === 2;
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
+        {page.cards.map((card, i) => {
+          const accent = ACCENTS[i] ?? ACCENTS[0];
+          const span   = SPANS[i] ?? 1;
+          const isFeatured = span === 2;
 
-            return (
-              <ScrollReveal
-                key={card.title}
-                delay={i * 60}
-                className={cn(span === 2 ? "col-span-2" : "col-span-1")}
-              >
-                {isFeatured ? (
-                  <FeaturedCard card={card} index={i} accent={accent} total={page.cards.length} />
-                ) : (
-                  <RegularCard card={card} index={i} accent={accent} total={page.cards.length} />
-                )}
-              </ScrollReveal>
-            );
-          })}
-        </div>
-      )}
+          return (
+            <ScrollReveal
+              key={card.title}
+              delay={i * 60}
+              className={cn(
+                span === 2 ? "col-span-2" : "col-span-1",
+              )}
+            >
+              {isFeatured ? (
+                <FeaturedCard card={card} index={i} accent={accent} />
+              ) : (
+                <RegularCard card={card} index={i} accent={accent} />
+              )}
+            </ScrollReveal>
+          );
+        })}
+      </div>
 
-      {/* ── Closing note ── */}
+      {/* ── Closing love note ── */}
       <ScrollReveal delay={page.cards.length * 60}>
         <div className="relative overflow-hidden rounded-[1.6rem] border border-rose-200/70 bg-gradient-to-br from-rose-900 via-rose-950 to-pink-950 p-4 shadow-[0_20px_50px_rgba(136,19,55,0.3)] sm:rounded-[1.8rem] sm:p-6">
           {/* Decorative hearts */}

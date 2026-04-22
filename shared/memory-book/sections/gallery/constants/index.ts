@@ -47,81 +47,83 @@ function createGalleryCategories(): GalleryCategory[] {
     createGalleryCategory({
       title: "Salyna My Smart Girl",
       description:
-        "Ten favorite photos of Salyna that deserve a page all to themselves.",
+        "Five favorite photos of Salyna that deserve a page all to themselves.",
       assetFolder: "salyna-my-smart-girl",
-      count: 10,
+      count: 5,
       frameClassName: "aspect-[4/5]",
+      extensions: ["JPG", "JPG", "HEIC", "JPG", "HEIC"],
+      imageClassNames: ["", "scale-[1.2]", "scale-[1.2]", "scale-[1.2]", ""],
     }),
     createGalleryCategory({
       title: "Together",
       description:
-        "Ten memories of us side by side, holding onto the quiet happiness of being together.",
+        "Five memories of us side by side, holding onto the quiet happiness of being together.",
       assetFolder: "together",
-      count: 10,
+      count: 5,
       frameClassName: "aspect-[4/5]",
     }),
     createGalleryCategory({
       title: "Our First Trip",
       description:
-        "Ten photos saved for the trip that became one of the sweetest parts of our story.",
+        "Five photos saved for the trip that became one of the sweetest parts of our story.",
       assetFolder: "our-first-trip",
-      count: 10,
+      count: 5,
       frameClassName: "aspect-[4/5]",
     }),
     createGalleryCategory({
       title: "Beach Date",
       description:
-        "Ten photos for the beach date memories, full of light, water, and time with you.",
+        "Five photos for the beach date memories, full of light, water, and time with you.",
       assetFolder: "beach-date",
-      count: 10,
+      count: 5,
       frameClassName: "aspect-[4/5]",
     }),
     createGalleryCategory({
       title: "Gifts",
       description:
-        "Ten photos for flowers, presents, and the little things that made love feel touchable.",
+        "Five photos for flowers, presents, and the little things that made love feel touchable.",
       assetFolder: "gifts",
-      count: 10,
+      count: 5,
       frameClassName: "aspect-[4/5]",
     }),
     createGalleryCategory({
       title: "Video Calls",
       description:
-        "Three screenshots from the calls that carried us from one day into the next.",
+        "Two screenshots from the calls that carried us from one day into the next.",
       assetFolder: "video-calls",
-      count: 3,
+      count: 2,
       frameClassName: "aspect-[16/10]",
     }),
     createGalleryCategory({
       title: "Holding Hand",
       description:
-        "Five photos for the small, steady feeling of your hand finding mine.",
+        "Three photos for the small, steady feeling of your hand finding mine.",
       assetFolder: "holding-hand",
-      count: 5,
+      count: 3,
       frameClassName: "aspect-[4/5]",
     }),
     createGalleryCategory({
       title: "Photo Booth",
       description:
-        "Three photo booth memories, the kind that feel playful and impossible not to keep.",
+        "Two photo booth memories, the kind that feel playful and impossible not to keep.",
       assetFolder: "photo-booth",
-      count: 3,
+      count: 2,
       frameClassName: "aspect-[4/5]",
     }),
     createGalleryCategory({
       title: "Family Meeting",
       description:
-        "Three photos for the moments when our story stepped into family space.",
+        "Two photos for the moments when our story stepped into family space.",
       assetFolder: "family-meeting",
-      count: 3,
+      count: 2,
       frameClassName: "aspect-[4/5]",
     }),
     createGalleryCategory({
       title: "Cute Messages",
       description:
-        "Five message screenshots worth keeping because even text from you can feel like a memory.",
+        "Three message screenshots worth keeping because even text from you can feel like a memory.",
       assetFolder: "cute-messages",
-      count: 5,
+      count: 3,
       frameClassName: "aspect-[9/16]",
     }),
   ];
@@ -133,11 +135,15 @@ type GalleryCategoryConfig = {
   assetFolder: string;
   count: number;
   frameClassName: string;
+  /** Per-photo extensions (index-matched). Falls back to "HEIC" for missing entries. */
+  extensions?: string[];
+  /** Per-photo imageClassName overrides (index-matched). e.g. "scale-[1.2]" to zoom in. */
+  imageClassNames?: string[];
 };
 
 type GalleryPhotosConfig = Pick<
   GalleryCategoryConfig,
-  "title" | "assetFolder" | "count" | "frameClassName"
+  "title" | "assetFolder" | "count" | "frameClassName" | "extensions" | "imageClassNames"
 >;
 
 function createGalleryCategory({
@@ -146,6 +152,8 @@ function createGalleryCategory({
   assetFolder,
   count,
   frameClassName,
+  extensions,
+  imageClassNames,
 }: GalleryCategoryConfig): GalleryCategory {
   return {
     title,
@@ -156,6 +164,8 @@ function createGalleryCategory({
       assetFolder,
       count,
       frameClassName,
+      extensions,
+      imageClassNames,
     }),
   };
 }
@@ -165,15 +175,20 @@ function createGalleryPhotos({
   assetFolder,
   count,
   frameClassName,
+  extensions,
+  imageClassNames,
 }: GalleryPhotosConfig): MemoryPhoto[] {
   return Array.from({ length: count }, (_, index) => {
     const number = String(index + 1).padStart(2, "0");
+    const ext = extensions?.[index] ?? "HEIC";
+    const imageClassName = imageClassNames?.[index];
 
     return {
-      src: `/assets/gallery/${assetFolder}/${assetFolder}-${number}.png`,
+      src: `/assets/gallery/${assetFolder}/${assetFolder}-${number}.${ext}`,
       alt: `${title} image ${index + 1}`,
       caption: `${title} ${number}`,
       frameClassName,
+      ...(imageClassName ? { imageClassName } : {}),
     };
   });
 }

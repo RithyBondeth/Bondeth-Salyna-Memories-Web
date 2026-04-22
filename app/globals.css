@@ -367,6 +367,54 @@
   animation: sparkle ease-in-out infinite;
 }
 
+/* ── Intro / splash page animations ─────────────────────────────── */
+
+@keyframes intro-bg-reveal {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes intro-slide-up {
+  0%   { opacity: 0; transform: translateY(36px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes intro-fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes intro-line-expand {
+  0%   { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes intro-glow-breathe {
+  0%, 100% { opacity: 0.18; transform: scale(1);    }
+  50%       { opacity: 0.32; transform: scale(1.08); }
+}
+
+@keyframes intro-heart-rise {
+  0%   { opacity: 0;    transform: translateY(0)     scale(0.85); }
+  15%  { opacity: 0.55; }
+  85%  { opacity: 0.25; }
+  100% { opacity: 0;    transform: translateY(-110px) scale(1.05); }
+}
+
+@keyframes intro-btn-appear {
+  0%   { opacity: 0; transform: translateY(14px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+@keyframes intro-exit {
+  0%   { opacity: 1; transform: scale(1);    }
+  100% { opacity: 0; transform: scale(1.05); }
+}
+
+.animate-intro-bg-reveal  { animation: intro-bg-reveal  0.6s ease both; }
+.animate-intro-glow       { animation: intro-glow-breathe 4s ease-in-out infinite; }
+.animate-intro-exit       { animation: intro-exit 0.7s cubic-bezier(0.4, 0, 1, 1) both; }
+
 /* Click-to-heart burst */
 @keyframes click-heart {
   0% {

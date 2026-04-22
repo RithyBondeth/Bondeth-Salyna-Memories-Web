@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { IntroPage } from "@/components/memory-book/intro-page";
 
 export default function Home() {
-  redirect("/cover");
+  return <IntroPage />;
 }

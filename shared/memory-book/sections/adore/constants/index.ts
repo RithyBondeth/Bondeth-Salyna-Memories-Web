@@ -24,18 +24,28 @@ export function createAdorePage(): BookPage {
     quote: "The more I know you, the more beautiful you become to me.",
     photos: [
       {
-        src: "/assets/adore/adore-01.png",
-        alt: "Adoration placeholder \u2014 a portrait",
-        caption: "The most beautiful person I know",
-        cardClassName: "col-span-2",
-        frameClassName: "aspect-[16/10]",
+        src: "/assets/adore/adore-01.HEIC",
+        alt: "The most beautiful person I know",
+        caption: "My everything",
+        frameClassName: "aspect-[3/4]",
       },
       {
-        src: "/assets/adore/adore-02.png",
-        alt: "Adoration placeholder \u2014 a studying moment",
-        caption: "My smart girl at work",
-        cardClassName: "col-span-2",
-        frameClassName: "aspect-[16/10]",
+        src: "/assets/adore/adore-02.JPG",
+        alt: "My smart girl",
+        caption: "My smart girl",
+        frameClassName: "aspect-[3/4]",
+      },
+      {
+        src: "/assets/adore/adore-03.HEIC",
+        alt: "My beautiful Salyna",
+        caption: "My beautiful",
+        frameClassName: "aspect-[3/4]",
+      },
+      {
+        src: "/assets/adore/adore-04.HEIC",
+        alt: "Always you",
+        caption: "Always you",
+        frameClassName: "aspect-[3/4]",
       },
     ],
     cards: [

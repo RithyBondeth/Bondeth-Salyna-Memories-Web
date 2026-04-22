@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AssetImage } from "./asset-image";
 
 import { cn } from "@/lib/utils";
 
@@ -25,7 +25,7 @@ export function MemoryPhotoCard({ photo }: { photo: MemoryPhoto }) {
           photo.frameClassName ?? "aspect-[4/5]",
         )}
       >
-        <Image
+        <AssetImage
           src={photo.src}
           alt={photo.alt}
           fill

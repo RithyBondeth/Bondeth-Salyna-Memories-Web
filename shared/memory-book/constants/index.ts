@@ -1,22 +1,19 @@
-import { getRelationshipMetrics } from "@/components/memory-book/dates";
 import type { BookPage } from "@/components/memory-book/types";
 
 import { createAdorePage } from "../sections/adore/constants";
 import { createCoverPage } from "../sections/cover/constants";
-import { createDatesPage } from "../sections/dates/constants";
 import { createDistancePage } from "../sections/distance/constants";
 import { createDreamsPage } from "../sections/dreams/constants";
 import { createGalleryPage } from "../sections/gallery/constants";
 import { createIntroductionPage } from "../sections/introduction/constants";
 import { createLetterPage } from "../sections/letter/constants";
+import { createTogetherPage } from "../sections/together/constants";
 
 export type BookRouteEntry = {
   id: BookPage["id"];
   href: string;
   page: BookPage;
 };
-
-const relationshipMetrics = getRelationshipMetrics();
 
 export const BOOK_ROUTES: BookRouteEntry[] = [
   {
@@ -40,9 +37,9 @@ export const BOOK_ROUTES: BookRouteEntry[] = [
     page: createDistancePage(),
   },
   {
-    id: "dates",
-    href: "/dates",
-    page: createDatesPage(relationshipMetrics),
+    id: "together",
+    href: "/together",
+    page: createTogetherPage(),
   },
   {
     id: "adore",

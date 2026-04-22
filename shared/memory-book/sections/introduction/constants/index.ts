@@ -16,16 +16,16 @@ export function createIntroductionPage(): BookPage {
       "Some love stories do not begin once. Ours began, waited, and then bloomed again when the time was right.",
     photos: [
       {
-        src: "/assets/introduction/introduction-01.png",
+        src: "/assets/introduction/introduction-01.jpg",
         alt: "A milestone image representing Bondeth and Salyna first meeting in 2022 between Siem Reap and Phnom Penh",
         caption: "2022 \u2014 the first time we met",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/assets/introduction/introduction-02.png",
+        src: "/assets/introduction/introduction-02.HEIC",
         alt: "A milestone image representing Bondeth giving Salyna a promise ring during their first in-person meeting in January 2026",
-        caption: "January 2026 \u2014 the promise ring",
+        caption: "January 2026 \u2014 the right time",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
@@ -52,7 +52,6 @@ export function createIntroductionPage(): BookPage {
         body: "When we finally met in person, I gave you a promise ring. It felt like the story that once slipped away had finally found its hands again.",
       },
     ],
-    note:
-      "If this book has a true beginning, it is here: 2022 started the feeling, June 2025 gave us another chance, and January 2026 made that love real in front of my eyes.",
+    note: "If this book has a true beginning, it is here: 2022 started the feeling, June 2025 gave us another chance, and January 2026 made that love real in front of my eyes.",
   };
 }
