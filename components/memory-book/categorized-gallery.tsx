@@ -214,7 +214,7 @@ export function CategorizedGallery({
                   </div>
 
                   <figcaption className="px-2 pb-2 pt-3">
-                    <p className="font-heading text-xl text-rose-950">
+                    <p className="text-xs italic text-rose-400">
                       {photo.caption}
                     </p>
                     {photo.hint ? (
