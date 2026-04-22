@@ -16,25 +16,25 @@ export function createDistancePage(): BookPage {
       "Loving you from far away is heavy. Not loving you would be impossible.",
     photos: [
       {
-        src: "/assets/distance/distance-01.HEIC",
+        src: "/assets/distance/distance-01.jpg",
         alt: "Our last goodbye",
         caption: "Last Goodbye",
         frameClassName: "aspect-[3/4]",
       },
       {
-        src: "/assets/distance/distance-02.HEIC",
+        src: "/assets/distance/distance-02.jpg",
         alt: "Our last hug",
         caption: "Last Hug",
         frameClassName: "aspect-[3/4]",
       },
       {
-        src: "/assets/distance/distance-03.HEIC",
+        src: "/assets/distance/distance-03.jpg",
         alt: "Our last kiss",
         caption: "Last Kiss",
         frameClassName: "aspect-[3/4]",
       },
       {
-        src: "/assets/distance/distance-04.HEIC",
+        src: "/assets/distance/distance-04.jpg",
         alt: "Our last ice cream together",
         caption: "Last Ice Cream",
         frameClassName: "aspect-[3/4]",

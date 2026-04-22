@@ -24,7 +24,7 @@ export function createAdorePage(): BookPage {
     quote: "The more I know you, the more beautiful you become to me.",
     photos: [
       {
-        src: "/assets/adore/adore-01.HEIC",
+        src: "/assets/adore/adore-01.jpg",
         alt: "The most beautiful person I know",
         caption: "My everything",
         frameClassName: "aspect-[3/4]",
@@ -36,13 +36,13 @@ export function createAdorePage(): BookPage {
         frameClassName: "aspect-[3/4]",
       },
       {
-        src: "/assets/adore/adore-03.HEIC",
+        src: "/assets/adore/adore-03.jpg",
         alt: "My beautiful Salyna",
         caption: "My beautiful",
         frameClassName: "aspect-[3/4]",
       },
       {
-        src: "/assets/adore/adore-04.HEIC",
+        src: "/assets/adore/adore-04.jpg",
         alt: "Always you",
         caption: "Always you",
         frameClassName: "aspect-[3/4]",

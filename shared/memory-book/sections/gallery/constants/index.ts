@@ -51,7 +51,7 @@ function createGalleryCategories(): GalleryCategory[] {
       assetFolder: "salyna-my-smart-girl",
       count: 5,
       frameClassName: "aspect-[4/5]",
-      extensions: ["JPG", "JPG", "HEIC", "JPG", "HEIC"],
+      extensions: ["JPG", "JPG", "jpg", "JPG", "jpg"],
       imageClassNames: ["", "scale-[1.2]", "scale-[1.2]", "scale-[1.2]", ""],
       captions: [
         "my favorite face to look at",
@@ -68,7 +68,7 @@ function createGalleryCategories(): GalleryCategory[] {
       assetFolder: "together",
       count: 5,
       frameClassName: "aspect-[4/5]",
-      extensions: ["JPG", "HEIC", "HEIC", "JPG", "JPG"],
+      extensions: ["JPG", "jpg", "jpg", "JPG", "JPG"],
       captions: [
         "my favorite place to be",
         "us, always",
@@ -99,7 +99,7 @@ function createGalleryCategories(): GalleryCategory[] {
       assetFolder: "gifts",
       count: 5,
       frameClassName: "aspect-[4/5]",
-      extensions: ["JPG", "HEIC", "HEIC", "HEIC", "HEIC"],
+      extensions: ["JPG", "jpg", "jpg", "jpg", "jpg"],
       captions: [
         "you make love feel tangible",
         "every flower from you means everything",
@@ -115,7 +115,7 @@ function createGalleryCategories(): GalleryCategory[] {
       assetFolder: "video-calls",
       count: 3,
       frameClassName: "aspect-[9/16]",
-      extensions: ["JPG", "JPG", "HEIC"],
+      extensions: ["JPG", "JPG", "jpg"],
       captions: [
         "the screen between us couldn't dim how bright you make me",
         "distance felt smaller when I could see your face",
@@ -144,7 +144,7 @@ type GalleryCategoryConfig = {
   assetFolder: string;
   count: number;
   frameClassName: string;
-  /** Per-photo extensions (index-matched). Falls back to "HEIC" for missing entries. */
+  /** Per-photo extensions (index-matched). Falls back to "jpg" for missing entries. */
   extensions?: string[];
   /** Per-photo imageClassName overrides (index-matched). e.g. "scale-[1.2]" to zoom in. */
   imageClassNames?: string[];
@@ -194,7 +194,7 @@ function createGalleryPhotos({
 }: GalleryPhotosConfig): MemoryPhoto[] {
   return Array.from({ length: count }, (_, index) => {
     const number = String(index + 1).padStart(2, "0");
-    const ext = extensions?.[index] ?? "HEIC";
+    const ext = extensions?.[index] ?? "jpg";
     const imageClassName = imageClassNames?.[index];
     const caption = captions?.[index] ?? `${title} ${number}`;
 

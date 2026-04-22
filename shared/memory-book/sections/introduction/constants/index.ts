@@ -23,7 +23,7 @@ export function createIntroductionPage(): BookPage {
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/assets/introduction/introduction-02.HEIC",
+        src: "/assets/introduction/introduction-02.jpg",
         alt: "A milestone image representing Bondeth giving Salyna a promise ring during their first in-person meeting in January 2026",
         caption: "January 2026 \u2014 the right time",
         cardClassName: "col-span-2",

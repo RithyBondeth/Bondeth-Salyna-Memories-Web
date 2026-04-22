@@ -16,20 +16,20 @@ export function createDreamsPage(): BookPage {
       "You did not just stand beside me. You rewrote the shape of what I call a normal day.",
     photos: [
       {
-        src: "/assets/dreams/dreams-01.HEIC",
+        src: "/assets/dreams/dreams-01.jpg",
         alt: "Visit placeholder \u2014 Salyna in Cambodia",
         caption: "When I finally saw you",
         cardClassName: "col-span-2",
         frameClassName: "aspect-[16/10]",
       },
       {
-        src: "/assets/dreams/dreams-02.HEIC",
+        src: "/assets/dreams/dreams-02.jpg",
         alt: "Visit placeholder \u2014 a quiet moment together",
         caption: "Ordinary hours",
         frameClassName: "aspect-[4/5]",
       },
       {
-        src: "/assets/dreams/dreams-03.HEIC",
+        src: "/assets/dreams/dreams-03.jpg",
         alt: "Visit placeholder \u2014 shared motivation",
         caption: "Side by side",
         frameClassName: "aspect-[4/5]",
