@@ -88,7 +88,18 @@ export function BackgroundMusic() {
         )}
       >
         {isPlaying ? (
-          <Pause className="size-3.5 fill-current" />
+          <span className="flex h-3.5 items-end gap-px" aria-hidden="true">
+            {[0, 1, 2, 3].map((i) => (
+              <span
+                key={i}
+                className="animate-music-bar w-[3px] rounded-full bg-rose-500"
+                style={{
+                  height: "14px",
+                  animationDelay: `${i * 0.13}s`,
+                }}
+              />
+            ))}
+          </span>
         ) : (
           <Music2 className="size-3.5" />
         )}

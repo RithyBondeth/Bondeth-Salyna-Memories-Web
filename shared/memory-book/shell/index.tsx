@@ -5,7 +5,9 @@ import { ArrowLeft, ArrowRight, Heart, Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { AnimatedText } from "@/components/memory-book/animated-text";
+import { ClickHearts } from "@/components/memory-book/click-hearts";
 import { FloatingHearts } from "@/components/memory-book/floating-hearts";
+import { SparklesBackground } from "@/components/memory-book/sparkles";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -73,6 +75,8 @@ export function MemoryBookShell({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_85%,rgba(249,168,212,0.4)_0%,transparent_48%)]" />
       <div className="romance-grid pointer-events-none absolute inset-0 opacity-40" />
       <FloatingHearts />
+      <SparklesBackground />
+      <ClickHearts />
 
       <div className="relative mx-auto flex min-h-[calc(100dvh-5.5rem)] w-full max-w-7xl flex-col gap-5 lg:min-h-[calc(100dvh-4rem)] lg:gap-8">
         {/* Header */}

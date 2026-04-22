@@ -2,6 +2,7 @@ import { AnimatedText } from "./animated-text";
 import { cn } from "@/lib/utils";
 
 import { MemoryGallery } from "./memory-gallery";
+import { ScrollReveal } from "./scroll-reveal";
 import type { BookPage, PageTheme } from "./types";
 
 type StoryPageProps = {
@@ -52,40 +53,43 @@ export function StoryPage({ page, theme }: StoryPageProps) {
       <div className="flex flex-col gap-4">
         <MemoryGallery photos={page.photos} />
 
-        {page.cards.map((card) => (
-          <div
-            key={card.title}
-            className={cn(
-              "rounded-[1.6rem] border border-rose-100/55 p-4 shadow-[0_16px_40px_rgba(190,24,93,0.08)] backdrop-blur-md sm:rounded-[1.8rem] sm:p-5",
-              theme.card,
-            )}
-          >
-            <div className="mb-3.5 flex items-center gap-3">
-              <div className="rounded-2xl bg-gradient-to-br from-rose-800 to-rose-950 p-3 text-rose-50 shadow-[0_8px_20px_rgba(136,19,55,0.28)]">
-                <card.icon className="size-5" />
+        {page.cards.map((card, i) => (
+          <ScrollReveal key={card.title} delay={i * 80}>
+            <div
+              className={cn(
+                "rounded-[1.6rem] border border-rose-100/55 p-4 shadow-[0_16px_40px_rgba(190,24,93,0.08)] backdrop-blur-md sm:rounded-[1.8rem] sm:p-5",
+                theme.card,
+              )}
+            >
+              <div className="mb-3.5 flex items-center gap-3">
+                <div className="rounded-2xl bg-gradient-to-br from-rose-800 to-rose-950 p-3 text-rose-50 shadow-[0_8px_20px_rgba(136,19,55,0.28)]">
+                  <card.icon className="size-5" />
+                </div>
+                <h3 className="font-heading text-xl text-rose-950 sm:text-2xl">
+                  {card.title}
+                </h3>
               </div>
-              <h3 className="font-heading text-xl text-rose-950 sm:text-2xl">
-                {card.title}
-              </h3>
+              <p className="text-sm leading-7 text-rose-950/72 sm:text-[0.95rem]">
+                {card.body}
+              </p>
             </div>
-            <p className="text-sm leading-7 text-rose-950/72 sm:text-[0.95rem]">
-              {card.body}
-            </p>
-          </div>
+          </ScrollReveal>
         ))}
 
-        <div className="rounded-[1.6rem] border border-rose-200/70 bg-gradient-to-br from-rose-50/85 to-pink-50/70 p-4 shadow-[0_14px_36px_rgba(190,24,93,0.07)] sm:rounded-[1.8rem] sm:p-5">
-          <div className="mb-3 flex items-center gap-2">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-rose-200/60 to-transparent" />
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-rose-400">
-              A Note From Bondeth
+        <ScrollReveal delay={page.cards.length * 80}>
+          <div className="rounded-[1.6rem] border border-rose-200/70 bg-gradient-to-br from-rose-50/85 to-pink-50/70 p-4 shadow-[0_14px_36px_rgba(190,24,93,0.07)] sm:rounded-[1.8rem] sm:p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-rose-200/60 to-transparent" />
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-rose-400">
+                A Note From Bondeth
+              </p>
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-rose-200/60 to-transparent" />
+            </div>
+            <p className="text-[0.9rem] leading-7 text-rose-950/74 sm:text-sm">
+              {page.note}
             </p>
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-rose-200/60 to-transparent" />
           </div>
-          <p className="text-[0.9rem] leading-7 text-rose-950/74 sm:text-sm">
-            {page.note}
-          </p>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );
