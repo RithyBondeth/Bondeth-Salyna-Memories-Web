@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+
+# Bondeth & Salyna — Memories
+
+**A personal web app that preserves our shared memories as a digital memory book of photos, stories, special moments, and milestones.**
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
+
+</div>
+
+---
+
+## Overview
+
+This is a personal digital memory book made for my girlfriend and me. It turns our journey into a story you can page through, with a cover, introduction, a "together" timeline, a distance chapter, dreams, a letter, and a photo gallery, all wrapped in gentle animations and background music.
+
+## Features
+
+- **Book-style chapters:** Cover, Introduction, Together, Distance, Dreams, Adore, Letter, and Gallery.
+- **Categorized photo gallery** with an archive view and a gallery manager, stored locally in IndexedDB.
+- **HEIC photo support** through server-side conversion.
+- **Distance map** showing the miles between us.
+- **Animated details:** floating hearts, sparkles, click hearts, animated text, and scroll reveals.
+- **Background music** and language switching.
+
+## Tech Stack
+
+| Area | Technology |
+| --- | --- |
+| Framework | Next.js 16 (App Router), React 19 |
+| Language | TypeScript |
+| Styling | Tailwind CSS 4, shadcn/ui, Radix UI |
+| Animation | GSAP |
+| Storage | IndexedDB |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js and npm
+
+### Installation
 
 ```bash
+git clone https://github.com/RithyBondeth/Bondeth-Salyna-Memories-Web.git
+cd Bondeth-Salyna-Memories-Web
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+Bondeth-Salyna-Memories-Web/
+├── app/
+│   ├── (book)/            # cover, introduction, together, distance, dreams,
+│   │                      # adore, letter, gallery
+│   └── api/heic/          # HEIC image conversion
+├── components/memory-book/  # Pages, gallery, effects, music, map
+├── shared/memory-book/      # Shared shell, sections, constants
+└── public/assets/           # Photos
+```
 
-## Learn More
+## Author
 
-To learn more about Next.js, take a look at the following resources:
+**Rithy Bondeth** — Full Stack Developer & AI Engineer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Portfolio](https://img.shields.io/badge/Portfolio-0A0A0A?style=for-the-badge&logo=vercel&logoColor=white)](https://bondeth.dev)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RithyBondeth)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rithy-bondeth-484073282/)
